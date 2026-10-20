@@ -147,3 +147,52 @@ fetch('content/works.json', {cache: 'no-cache'}).then(response => { if (!respons
   const active = document.querySelector('[data-filter].active');
   render(active ? active.dataset.filter : 'sve');
 }).catch(() => { loadFailed = true; render(); });
+
+// Public GitHub contributor totals count commits; GitHub may cache them for hours.
+const contributionCacheKey = 'anyps5-ivica00-v1';
+const contributionTTL = 15 * 60 * 1000;
+let contributionRequest = false;
+function displayContributions(data, stale = false) {
+  document.querySelector('#anyps5-count').textContent = new Intl.NumberFormat('hr-HR').format(data.count);
+  const checked = new Date(data.checkedAt).toLocaleString('hr-HR', {dateStyle: 'short', timeStyle: 'short'});
+  document.querySelector('#anyps5-status').textContent = `${stale ? 'Zadnji spremljeni podatak' : 'Provjereno na GitHubu'}: ${checked}. GitHub može kasniti nekoliko sati.`;
+}
+function readContributions() {
+  try {
+    const data = JSON.parse(localStorage.getItem(contributionCacheKey));
+    return data && Number.isSafeInteger(data.count) && data.count >= 0 && Number.isFinite(data.checkedAt) ? data : null;
+  } catch { return null; }
+}
+async function updateContributions() {
+  if (contributionRequest) return;
+  const cached = readContributions();
+  if (cached) displayContributions(cached);
+  if (cached && Date.now() - cached.checkedAt < contributionTTL) return;
+  contributionRequest = true;
+  try {
+    let url = 'https://api.github.com/repos/boykopovar/AnyPS5/contributors?per_page=100';
+    let count = null;
+    // Follow pagination even if the account moves outside the first 100 contributors.
+    while (url) {
+      const response = await fetch(url, {headers: {Accept: 'application/vnd.github+json'}, signal: AbortSignal.timeout(10000)});
+      if (!response.ok) throw new Error('GitHub unavailable');
+      const contributors = response.status === 204 ? [] : await response.json();
+      if (!Array.isArray(contributors)) throw new Error('Invalid contributors');
+      const user = contributors.find(item => typeof item.login === 'string' && item.login.toLowerCase() === 'ivica00');
+      if (user) { count = user.contributions; break; }
+      const next = (response.headers.get('Link') || '').match(/<([^>]+)>; rel="next"/);
+      url = next ? next[1] : null;
+      if (url && (new URL(url).origin !== 'https://api.github.com' || !new URL(url).pathname.startsWith('/repos/boykopovar/AnyPS5/contributors'))) throw new Error('Invalid pagination');
+    }
+    if (count === null) count = 0;
+    if (!Number.isSafeInteger(count) || count < 0) throw new Error('Invalid count');
+    const data = {count, checkedAt: Date.now()};
+    displayContributions(data);
+    try { localStorage.setItem(contributionCacheKey, JSON.stringify(data)); } catch { /* Storage is optional. */ }
+  } catch {
+    if (cached) displayContributions(cached, true);
+    else document.querySelector('#anyps5-status').textContent = 'Broj trenutačno nije dostupan. Pogledaj doprinose na GitHubu.';
+  } finally { contributionRequest = false; }
+}
+updateContributions();
+setInterval(() => { if (!document.hidden) updateContributions(); }, contributionTTL);
