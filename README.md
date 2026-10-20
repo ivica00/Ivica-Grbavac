@@ -4,7 +4,7 @@ Osobna stranica: glazba, fotografija, inženjerstvo i razvoj. Statički HTML, CS
 
 ## Gdje se dodaju radovi
 
-Svi radovi nalaze se u **`content/works.json`**, u popisu `works`. Redoslijed zapisa određuje redoslijed na stranici. Trenutačno je popis prazan jer stvarni radovi još nisu dodani.
+Svi radovi nalaze se u **`content/works.json`**, u popisu `works`. Redoslijed zapisa određuje redoslijed na stranici. Tri fotografske kolekcije trenutačno priprema skripta opisana ispod; ostale radove možeš dodavati ručno.
 
 Na GitHubu otvori datoteku, klikni olovku (Edit), dodaj zapis i spremi s **Commit changes**. GitHub Pages nakon objave promjene automatski ažurira stranicu. Osvježavanje može potrajati nekoliko minuta.
 
@@ -77,11 +77,15 @@ Koristi `"category": "razvoj"`, naslov, opis, godinu, neobaveznu naslovnicu i `u
 
 ## Automatski odabir fotografija
 
-`scripts/select_photos.py` lokalno rangira JPG/JPEG datoteke modelom **OpenAI CLIP ViT-B/32 + LAION Aesthetic Predictor**. Objavljuje dvije kolekcije po četiri fotografije: glavni izbor iz dostupne mape i četiri dodatne fotografije iz posljednjih mjesec dana (npr. 20.09.–20.10.). Estetski rezultat je procjena modela, a odabir uzima u obzir i raznolikost kadrova.
+`scripts/select_photos.py` lokalno analizira JPG/JPEG datoteke modelom **OpenAI CLIP ViT-B/32 + LAION Aesthetic Predictor**. Priprema tri kolekcije s najviše četiri fotografije: glavni izbor, posljednji mjesec i posljednji tjedan. CLIP uspoređuje opise profesionalne fotografije s opisima osobnih uspomena i usputnih snimaka. To su relativne sličnosti, a ne vjerojatnost ili potvrda profesionalne kvalitete.
 
-Glavni izbor ima prednost. Mjesečni izbor isključuje sve već odabrane fotografije i vizualno slične kadrove. Provjera koristi CLIP značajke (kosinusna sličnost), perceptualni hash i vrijeme snimanja za različite poze u istoj seriji. Ograničenja vrijede kroz svih osam fotografija, bez preklapanja kategorija. Ako nema osam dovoljno različitih fotografija, skripta prekida bez izmjene galerije umjesto da popuni mjesta ponavljanjima. Prije objave treba pregledati `.photo-selection/contact-sheet.jpg`: model ne jamči savršen vizualni odabir.
+Kriteriji i opisi su u `scripts/portfolio_policy.json`. Provjeravaju se izvorna rezolucija, približna oštrina i ekstremna ekspozicija. Model predlaže kandidate; završni vizualni pregled sprema se u `scripts/portfolio_review.json`, po SHA-256 otisku fotografije. Odobrenje nije korisnikova osobna recenzija: trenutačni pregled napravio je AI asistent. Vizualni pregled može ispraviti pogrešnu tematsku procjenu modela, ali ne zaobilazi tehničke minimume, datume ni pravila raznolikosti. Novi i promijenjeni radovi moraju proći novi pregled prije ulaska u javni izbor.
 
-Datum uzima iz EXIF DateTimeOriginal, a ako nije dostupan iz EXIF DateTime. Fotografije bez datuma ne ulaze u mjesečni izbor. Izvorni JPG i DNG ostaju na računalu. Web dobiva samo WebP slike do 600 px po duljoj stranici, bez EXIF/GPS metapodataka. Klik za original trenutačno nije omogućen.
+Zbog zabrane ponavljanja prvo se rezervira do četiri fotografije za najuže, tjedno razdoblje, zatim glavni izbor, pa dodatni mjesečni radovi. Na stranici se prikazuju redom glavni, mjesečni i tjedni izbor. Provjera koristi CLIP značajke, perceptualni hash i vrijeme snimanja; iste fotografije i vrlo slični kadrovi ne ponavljaju se između kolekcija. Ako nema dovoljno prikladnih i raznolikih kandidata, prikazuje se manji broj uz objašnjenje. Prije objave treba pregledati `.photo-selection/contact-sheet.jpg`.
+
+Za datum 20.10.2026. mjesečni prozor je 20.09.–20.10., a tjedni prozor 14.10.–20.10. (sedam datuma uključujući odabrani dan). Koristi se datum snimanja, ne datum kopiranja datoteke.
+
+Datum uzima iz EXIF DateTimeOriginal, a ako nije dostupan iz EXIF DateTime. Fotografije bez datuma ne ulaze u mjesečni ni tjedni izbor. Izvorni JPG i DNG ostaju na računalu. Web dobiva samo WebP slike do 600 px po duljoj stranici, bez EXIF/GPS metapodataka. Klik za original trenutačno nije omogućen.
 
 Pokretanje iz mape projekta:
 
@@ -105,7 +109,7 @@ Pokreni `python -m http.server 4173` u mapi projekta i otvori `http://localhost:
 
 GitHub Pages: Settings → Pages → Deploy from a branch → `main` i `/ (root)`.
 
-Custom domena još nije postavljena. Kad odabereš domenu, postavi je u Settings → Pages → Custom domain i dodaj DNS zapise u Cloudflareu prema GitHub Pages uputama. Ne dodavati izmišljenu domenu u CNAME.
+Custom domena je `ivicagrbavac.com`, spremljena u `CNAME` i povezana kroz GitHub Pages.
 
 ## Kontakt i izgled
 

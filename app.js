@@ -63,6 +63,7 @@ function render(category = 'sve') {
     card.append(el('div', [labels[work.category], work.year, work.role].filter(Boolean).join(' / '), 'work-meta'));
     card.append(el('h3', work.title));
     if (work.description) card.append(el('p', work.description));
+    if (work.selectionNote) card.append(el('p', work.selectionNote, 'selection-note'));
     if (Array.isArray(work.photos) && work.photos.length) {
       if (work.thumbnailOnly) {
         const grid = el('div', '', 'photo-thumbnails');

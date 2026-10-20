@@ -1,6 +1,6 @@
 """Rank local JPEGs with CLIP ViT-B/32 + LAION linear aesthetic predictor.
 
-Only exported 600px thumbnails and the two gallery records are published.
+Only exported 600px thumbnails and the three gallery records are published.
 Run from the project root: python scripts/select_photos.py --as-of 2026-10-20
 """
 import argparse
@@ -22,6 +22,7 @@ import torch
 from PIL import Image, ImageOps, ImageDraw
 from transformers import CLIPImageProcessor, CLIPVisionModelWithProjection
 from photo_selection import select_collections
+from portfolio_quality import enrich_records
 
 def main():
     parser = argparse.ArgumentParser()
@@ -33,6 +34,7 @@ def main():
     previous_year = day.year if day.month > 1 else day.year - 1
     start = day.replace(year=previous_year, month=previous_month, day=min(day.day, calendar.monthrange(previous_year, previous_month)[1]))
     end = day + timedelta(days=1)
+    week_start = end - timedelta(days=7)
     cache = ROOT / '.model-cache'
     report_dir = ROOT / '.photo-selection'
     cache.mkdir(exist_ok=True)
@@ -84,10 +86,12 @@ def main():
         except Exception as error:
             errors.append({'source': str(path), 'error': str(error)})
             print(f'SKIP {path.name}: {error}', flush=True)
-    ranked = sorted(records, key=lambda record: (-record['score'], record['source']))
-    selections = select_collections(records, start, end)
-    if any(len(selection) < 4 for selection in selections.values()):
-        raise RuntimeError('Not enough eligible distinct photographs; no gallery changes written.')
+    if not records:
+        raise RuntimeError('No photographs could be read; published galleries are unchanged.')
+    policy = enrich_records(records, ROOT)
+    score_path.write_text(json.dumps({record['source']: record for record in records}), encoding='utf-8')
+    ranked = sorted(records, key=lambda record: (-record['portfolio_score'], record['source']))
+    selections = select_collections(records, start, end, week_start)
     output = ROOT / 'assets' / 'photos' / 'selected'
     output.mkdir(parents=True, exist_ok=True)
     exported = {}
@@ -103,17 +107,20 @@ def main():
     catalog_path = ROOT / 'content' / 'works.json'
     catalog = json.loads(catalog_path.read_text(encoding='utf-8'))
     catalog['works'] = [work for work in catalog['works'] if work.get('id') not in selections]
-    titles = {'najbolje-ikad': '4 najbolje ikad', 'zadnjih-mjesec-dana': '4 najbolje u zadnjih mjesec dana'}
+    titles = {'najbolje-ikad': '4 najbolje ikad', 'zadnjih-mjesec-dana': '4 najbolje u zadnjih mjesec dana', 'zadnjih-tjedan-dana': '4 najbolje u zadnjih tjedan dana'}
     for key, group in selections.items():
         photos = [{**exported[record['sha256']], 'alt': f'{titles[key]} — fotografija {i + 1}'} for i, record in enumerate(group)]
-        description = 'Četiri izdvojene fotografije iz moje zbirke, odabrane prema kvaliteti i raznolikosti kadrova.'
+        description = 'Odabrani radovi prema prikladnosti za profesionalni portfolio, tehničkoj kvaliteti i raznolikosti kadrova.'
         if key == 'zadnjih-mjesec-dana':
-            description = f'Četiri dodatne fotografije snimljene od {start:%d.%m.%Y.} do {day:%d.%m.%Y.}, bez ponavljanja iz glavnog izbora.'
-        catalog['works'].append({'id': key, 'title': titles[key], 'category': 'fotografija', 'description': description, 'thumbnailOnly': True, 'photos': photos})
+            description = f'Odabrani radovi snimljeni od {start:%d.%m.%Y.} do {day:%d.%m.%Y.}, bez ponavljanja iz drugih kolekcija.'
+        elif key == 'zadnjih-tjedan-dana':
+            description = f'Odabrani radovi snimljeni od {week_start:%d.%m.%Y.} do {day:%d.%m.%Y.}, bez ponavljanja iz drugih kolekcija.'
+        note = '' if len(photos) == 4 else (f'Odabrano {len(photos)} od najviše 4 rada. Prednost ima kvaliteta izbora.' if photos else 'Za ovo razdoblje trenutačno nema dodatnih radova koji zadovoljavaju kriterije odabira.')
+        catalog['works'].append({'id': key, 'title': titles[key], 'category': 'fotografija', 'description': description, 'selectionNote': note, 'thumbnailOnly': True, 'photos': photos})
     catalog_path.write_text(json.dumps(catalog, ensure_ascii=False, indent=2) + '\n', encoding='utf-8')
-    report = {'model': 'openai/clip-vit-base-patch32 + LAION sa_0_4_vit_b_32_linear', 'selection_policy': 'Aesthetic ranking; global CLIP cosine < 0.86; dHash distance > 10; burst exclusion at 180s and cosine >= 0.78; all-time first, recent excludes all previously selected scenes; fail instead of relaxing constraints', 'as_of': args.as_of, 'recent_from': start.isoformat(), 'date_policy': 'EXIF DateTimeOriginal, fallback EXIF DateTime; undated excluded from recent', 'ranked': ranked, 'selected': selections, 'errors': errors}
+    report = {'model': 'openai/clip-vit-base-patch32 + LAION sa_0_4_vit_b_32_linear', 'portfolio_policy': policy, 'selection_policy': 'CLIP professional-vs-personal suggestions, mandatory saved visual review and technical eligibility; aesthetic+margin ranking; global diversity; weekly reservation, then all-time, then monthly; underfill instead of repeating or lowering standards', 'as_of': args.as_of, 'recent_from': start.isoformat(), 'week_from': week_start.isoformat(), 'date_policy': 'EXIF DateTimeOriginal, fallback EXIF DateTime; undated excluded from recent', 'ranked': ranked, 'selected': selections, 'errors': errors}
     (report_dir / 'report.json').write_text(json.dumps(report, ensure_ascii=False, indent=2), encoding='utf-8')
-    sheet = Image.new('RGB', (1200, 430 * 2), '#20251f')
+    sheet = Image.new('RGB', (1200, 430 * len(selections)), '#20251f')
     draw = ImageDraw.Draw(sheet)
     for row, (key, group) in enumerate(selections.items()):
         draw.text((15, row * 430 + 10), key, fill='white')

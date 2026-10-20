@@ -4,29 +4,30 @@
       "id": "najbolje-ikad",
       "title": "4 najbolje ikad",
       "category": "fotografija",
-      "description": "Četiri izdvojene fotografije iz moje zbirke, odabrane prema kvaliteti i raznolikosti kadrova.",
+      "description": "Odabrani radovi prema prikladnosti za profesionalni portfolio, tehničkoj kvaliteti i raznolikosti kadrova.",
+      "selectionNote": "",
       "thumbnailOnly": true,
       "photos": [
         {
-          "src": "assets/photos/selected/6c7e1a2b3e26ce12.webp",
+          "src": "assets/photos/selected/1d82998bf6a91623.webp",
           "width": 600,
           "height": 400,
           "alt": "4 najbolje ikad — fotografija 1"
         },
         {
-          "src": "assets/photos/selected/1d82998bf6a91623.webp",
+          "src": "assets/photos/selected/d30ab59809907b9c.webp",
           "width": 600,
           "height": 400,
           "alt": "4 najbolje ikad — fotografija 2"
         },
         {
-          "src": "assets/photos/selected/b836c5bd84bf190b.webp",
+          "src": "assets/photos/selected/62cc6dd93a3df0a4.webp",
           "width": 600,
           "height": 400,
           "alt": "4 najbolje ikad — fotografija 3"
         },
         {
-          "src": "assets/photos/selected/3d4740dbc10688c7.webp",
+          "src": "assets/photos/selected/77b75167a3b56247.webp",
           "width": 600,
           "height": 400,
           "alt": "4 najbolje ikad — fotografija 4"
@@ -37,32 +38,49 @@
       "id": "zadnjih-mjesec-dana",
       "title": "4 najbolje u zadnjih mjesec dana",
       "category": "fotografija",
-      "description": "Četiri dodatne fotografije snimljene od 20.09.2026. do 20.10.2026., bez ponavljanja iz glavnog izbora.",
+      "description": "Odabrani radovi snimljeni od 20.09.2026. do 20.10.2026., bez ponavljanja iz drugih kolekcija.",
+      "selectionNote": "Odabrano 2 od najviše 4 rada. Prednost ima kvaliteta izbora.",
       "thumbnailOnly": true,
       "photos": [
         {
-          "src": "assets/photos/selected/ca32297c5ff6590b.webp",
-          "width": 400,
-          "height": 600,
+          "src": "assets/photos/selected/83e6abd406a106a8.webp",
+          "width": 600,
+          "height": 400,
           "alt": "4 najbolje u zadnjih mjesec dana — fotografija 1"
         },
         {
-          "src": "assets/photos/selected/0ba7ccd81f5b255c.webp",
+          "src": "assets/photos/selected/ae3f9db750bb56fc.webp",
           "width": 600,
           "height": 400,
           "alt": "4 najbolje u zadnjih mjesec dana — fotografija 2"
-        },
+        }
+      ]
+    },
+    {
+      "id": "zadnjih-tjedan-dana",
+      "title": "4 najbolje u zadnjih tjedan dana",
+      "category": "fotografija",
+      "description": "Odabrani radovi snimljeni od 14.10.2026. do 20.10.2026., bez ponavljanja iz drugih kolekcija.",
+      "selectionNote": "Odabrano 3 od najviše 4 rada. Prednost ima kvaliteta izbora.",
+      "thumbnailOnly": true,
+      "photos": [
         {
-          "src": "assets/photos/selected/869fdbad77d72121.webp",
+          "src": "assets/photos/selected/6fc39f77e1787239.webp",
           "width": 600,
           "height": 400,
-          "alt": "4 najbolje u zadnjih mjesec dana — fotografija 3"
+          "alt": "4 najbolje u zadnjih tjedan dana — fotografija 1"
         },
         {
-          "src": "assets/photos/selected/23706cd97d54f180.webp",
+          "src": "assets/photos/selected/e4197b50b690b89c.webp",
           "width": 600,
           "height": 400,
-          "alt": "4 najbolje u zadnjih mjesec dana — fotografija 4"
+          "alt": "4 najbolje u zadnjih tjedan dana — fotografija 2"
+        },
+        {
+          "src": "assets/photos/selected/4beedace67e7e347.webp",
+          "width": 600,
+          "height": 400,
+          "alt": "4 najbolje u zadnjih tjedan dana — fotografija 3"
         }
       ]
     }

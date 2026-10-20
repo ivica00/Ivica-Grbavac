@@ -1,0 +1,862 @@
+{
+  "reviewed_on": "2026-10-20",
+  "policy": "AI visual review of the available collection; personal memories and weaker/redundant frames excluded; new files require a new visual review.",
+  "photos": {
+    "77b75167a3b56247755698ef39da448d0c0737c216cb83900c7a538130c04122": {
+      "decision": "approve",
+      "reason": "Namjerno kadrirano nebo s izraženim bojama i slojevima oblaka."
+    },
+    "006857e4d0875b4ce6429ee7878e979025c41fec4351dd7a71e2c6d3ecb58eef": {
+      "decision": "exclude",
+      "reason": "Izvan trenutačnog užeg izbora za profesionalni portfolio nakon vizualnog pregleda."
+    },
+    "39c0e12e9e1b2b07b36a44ef0653292a780e22df819b0a146ff20b21035788df": {
+      "decision": "exclude",
+      "reason": "Izvan trenutačnog užeg izbora za profesionalni portfolio nakon vizualnog pregleda."
+    },
+    "a6cad2bd19e4074843d2b584d4337c8ef6f05fabeeee0716bbf2661c7caf09da": {
+      "decision": "exclude",
+      "reason": "Izvan trenutačnog užeg izbora za profesionalni portfolio nakon vizualnog pregleda."
+    },
+    "9a5c861fcd3be69f1ca661e0151a43007497ccb52a13a0f9c2402f329bc96d97": {
+      "decision": "exclude",
+      "reason": "Izvan trenutačnog užeg izbora za profesionalni portfolio nakon vizualnog pregleda."
+    },
+    "9cea03ca33f379a8b8bd3ca5b890fca44b1b5d6370466f7761172a803efc9127": {
+      "decision": "exclude",
+      "reason": "Izvan trenutačnog užeg izbora za profesionalni portfolio nakon vizualnog pregleda."
+    },
+    "8cad21def940cf8dc23f7be4eca30f9c7dc581bc7680ebbbe6b475b379ef4257": {
+      "decision": "exclude",
+      "reason": "Izvan trenutačnog užeg izbora za profesionalni portfolio nakon vizualnog pregleda."
+    },
+    "44fcf7722bdaabfbc81b62674fbe210684888ab44b44d2da33502dc11f8bc928": {
+      "decision": "exclude",
+      "reason": "Izvan trenutačnog užeg izbora za profesionalni portfolio nakon vizualnog pregleda."
+    },
+    "ad183ad504db82f2fb720a271ef536d04ae4e644ddeee66fc5ee73925143d670": {
+      "decision": "exclude",
+      "reason": "Izvan trenutačnog užeg izbora za profesionalni portfolio nakon vizualnog pregleda."
+    },
+    "62cc6dd93a3df0a4c4c200501dbfaa7cd638b8e7b764523810b952a2c08a5240": {
+      "decision": "approve",
+      "reason": "Jasan portret u prirodnom svjetlu s odvojenim subjektom i namjernim kadrom."
+    },
+    "845b6640f1ee7927023a8618b89d3423824e0eae9484cd8900c64c838e9832dd": {
+      "decision": "exclude",
+      "reason": "Izvan trenutačnog užeg izbora za profesionalni portfolio nakon vizualnog pregleda."
+    },
+    "d30ab59809907b9c06fed876b4dccdf476056aa28d0723da8491b8f4f8743a2b": {
+      "decision": "approve",
+      "reason": "Krupni kadar jela s jasnim subjektom, naglašenom teksturom i tamnom pozadinom."
+    },
+    "ee5067f0967f1c2ed9bf465e0f45469e601d6200739b6ce5e87285de5b707323": {
+      "decision": "exclude",
+      "reason": "Izvan trenutačnog užeg izbora za profesionalni portfolio nakon vizualnog pregleda."
+    },
+    "22613c84a0e755f398b4023e8738128fab473a68c7d13c36d2f3d5467922882c": {
+      "decision": "exclude",
+      "reason": "Izvan trenutačnog užeg izbora za profesionalni portfolio nakon vizualnog pregleda."
+    },
+    "2948e00340d7efbd06e2167a0f0f0d7c9dc857c0649353694b6c198124543c7a": {
+      "decision": "exclude",
+      "reason": "Izvan trenutačnog užeg izbora za profesionalni portfolio nakon vizualnog pregleda."
+    },
+    "e4197b50b690b89cb0c71824b4da8086f8a6adda344b51e00a50a6e8cfb8e8e2": {
+      "decision": "approve",
+      "reason": "Namješten portret u ambijentalnom svjetlu, s prostornom dubinom i jasnim subjektom."
+    },
+    "6fc39f77e17872396f54330b345c1ab18d22055016b6bda99aecbef66c319a8e": {
+      "decision": "approve",
+      "reason": "Kompozicija osvijetljene staze s vodećim linijama i atmosferom noćnog parka."
+    },
+    "2c437420971b4fbf3c2b211caa8db5d53f9d08611e8d85c6470b568db2db9e68": {
+      "decision": "exclude",
+      "reason": "Izvan trenutačnog užeg izbora za profesionalni portfolio nakon vizualnog pregleda."
+    },
+    "8a585106d8298c4f05712836eb50ae0b3aaf6365b088fe5cb70981fdb0e43141": {
+      "decision": "exclude",
+      "reason": "Izvan trenutačnog užeg izbora za profesionalni portfolio nakon vizualnog pregleda."
+    },
+    "4beedace67e7e3478f87e1569639fbfc8ba30ce745af71d7414276024e5a38f4": {
+      "decision": "approve",
+      "reason": "Krupni ambijentalni portret s odvojenom pozadinom i izražajnim svjetlom."
+    },
+    "f8efb94c22380afb38ee0dfcd7215debbebb98c939c25221d6dadad6a4237f54": {
+      "decision": "exclude",
+      "reason": "Izvan trenutačnog užeg izbora za profesionalni portfolio nakon vizualnog pregleda."
+    },
+    "0cc07925f9262ed6c47bc41146d5a1826fddb13decb2d5aeaef24e87713757ec": {
+      "decision": "exclude",
+      "reason": "Izvan trenutačnog užeg izbora za profesionalni portfolio nakon vizualnog pregleda."
+    },
+    "0aeef640925f49e10618aba1ad347fe9ea6813a92d63c2d80235bf197324171e": {
+      "decision": "exclude",
+      "reason": "Izvan trenutačnog užeg izbora za profesionalni portfolio nakon vizualnog pregleda."
+    },
+    "ca4fd773945984fc17026e01b921422197cb697d00c4f2cfd69f8616bfcf3f93": {
+      "decision": "exclude",
+      "reason": "Izvan trenutačnog užeg izbora za profesionalni portfolio nakon vizualnog pregleda."
+    },
+    "ae3f9db750bb56fce9e4ceff6585e6526cfb4b98931a41dbce61882dc804f9a0": {
+      "decision": "approve",
+      "reason": "Makro motiv leptira na cvijetu, s odvojenim subjektom i mekom pozadinom."
+    },
+    "4b474ea4103f9852a9ea8db2e4bc0265efab0a878ae13b70cea79e497f3dc7cd": {
+      "decision": "exclude",
+      "reason": "Izvan trenutačnog užeg izbora za profesionalni portfolio nakon vizualnog pregleda."
+    },
+    "81df61785dd19633bbc7e33ce1d516595dcc5a0fbae8b1ed8419e559e3e6ab0f": {
+      "decision": "exclude",
+      "reason": "Izvan trenutačnog užeg izbora za profesionalni portfolio nakon vizualnog pregleda."
+    },
+    "bb6e45dfeb27397ba6d45bbaf20b23098e90610fc5dca33e19471bb0ab2b8b2c": {
+      "decision": "exclude",
+      "reason": "Izvan trenutačnog užeg izbora za profesionalni portfolio nakon vizualnog pregleda."
+    },
+    "2185c6f55260c39a8cac46f9ceafccab18c28c227dc5cbc335267f3a744bc250": {
+      "decision": "exclude",
+      "reason": "Izvan trenutačnog užeg izbora za profesionalni portfolio nakon vizualnog pregleda."
+    },
+    "c7e38ca59ff96b1b71276dd65f5efbcca038df47248efdf89047ef2e6fcf1636": {
+      "decision": "exclude",
+      "reason": "Izvan trenutačnog užeg izbora za profesionalni portfolio nakon vizualnog pregleda."
+    },
+    "8e1279201cc86ef8b7e13cc5a69e3ea951d8fcb7610531097dc536744dc3dbe9": {
+      "decision": "exclude",
+      "reason": "Izvan trenutačnog užeg izbora za profesionalni portfolio nakon vizualnog pregleda."
+    },
+    "c1874000b896c490b4c92a6288a7b97b288cd0b7fd361904e0d692b24c82c3e9": {
+      "decision": "exclude",
+      "reason": "Izvan trenutačnog užeg izbora za profesionalni portfolio nakon vizualnog pregleda."
+    },
+    "d74f4805abb8e8940b220d45faf9c0dc78f859b140f636a9755c9f4f02a0d253": {
+      "decision": "exclude",
+      "reason": "Izvan trenutačnog užeg izbora za profesionalni portfolio nakon vizualnog pregleda."
+    },
+    "b9f20cc6889e632e42da38a1b7f6d01d4df5cc3e2afc21f50109f1cb5dfc5642": {
+      "decision": "exclude",
+      "reason": "Izvan trenutačnog užeg izbora za profesionalni portfolio nakon vizualnog pregleda."
+    },
+    "d00227a348a10ecdddec85f1784ac348164d8ac690c088187b6aef2ce7cc6e7c": {
+      "decision": "exclude",
+      "reason": "Izvan trenutačnog užeg izbora za profesionalni portfolio nakon vizualnog pregleda."
+    },
+    "9934a8594a94f3f1b2925637759d1fb2629d06e2fa5a48b29e04ffbaf3d8d920": {
+      "decision": "exclude",
+      "reason": "Izvan trenutačnog užeg izbora za profesionalni portfolio nakon vizualnog pregleda."
+    },
+    "85b29b1d8634185525745d3e541d55cad63a2c1f06d5baee7901230bf98f0036": {
+      "decision": "exclude",
+      "reason": "Izvan trenutačnog užeg izbora za profesionalni portfolio nakon vizualnog pregleda."
+    },
+    "3d4740dbc10688c745df7c4d2a337f48ba2d71c864e9f1bc0aab23f3ac81473d": {
+      "decision": "exclude",
+      "reason": "Izvan trenutačnog užeg izbora za profesionalni portfolio nakon vizualnog pregleda."
+    },
+    "43978df2979948f44942c158d75d215abeeb18d202cf9b8332cc6635f7aa6211": {
+      "decision": "exclude",
+      "reason": "Izvan trenutačnog užeg izbora za profesionalni portfolio nakon vizualnog pregleda."
+    },
+    "4cefa84244f809a684ec197ab2918cfeddbe3cb3cdb0eb48d50c0d0e1b1d7aee": {
+      "decision": "exclude",
+      "reason": "Izvan trenutačnog užeg izbora za profesionalni portfolio nakon vizualnog pregleda."
+    },
+    "90f5929efb4423db1045b93e14457f3f1aa861f36e74de6d96a2c0fda237ca33": {
+      "decision": "exclude",
+      "reason": "Izvan trenutačnog užeg izbora za profesionalni portfolio nakon vizualnog pregleda."
+    },
+    "b836c5bd84bf190ba0e039af4deae1893ed3ffd4f20ece55f9078e1624c6d159": {
+      "decision": "exclude",
+      "reason": "Izvan trenutačnog užeg izbora za profesionalni portfolio nakon vizualnog pregleda."
+    },
+    "23ca4f38fbe2c1753fcc33533b5f8737881224d4b38da30be3ceb77901caacb7": {
+      "decision": "exclude",
+      "reason": "Izvan trenutačnog užeg izbora za profesionalni portfolio nakon vizualnog pregleda."
+    },
+    "6de83c1f277920ad52fca6e3126209485bb5a701b2f1c66e92c229d11104be73": {
+      "decision": "exclude",
+      "reason": "Izvan trenutačnog užeg izbora za profesionalni portfolio nakon vizualnog pregleda."
+    },
+    "68efbdf1d574c22217a38d5ac0e25e2084a195c0a7460f7fb7b182281cf51b71": {
+      "decision": "exclude",
+      "reason": "Izvan trenutačnog užeg izbora za profesionalni portfolio nakon vizualnog pregleda."
+    },
+    "ee0a3790182a1cc6227b2de8d040bdab0ad037da5a641604a50e08ea24354bde": {
+      "decision": "exclude",
+      "reason": "Izvan trenutačnog užeg izbora za profesionalni portfolio nakon vizualnog pregleda."
+    },
+    "596eac4a413ab9fc734d2fac4bbc6f78259d47a07cbda93c4dd8162862350465": {
+      "decision": "exclude",
+      "reason": "Izvan trenutačnog užeg izbora za profesionalni portfolio nakon vizualnog pregleda."
+    },
+    "32556ac14eb0a82dc2add82a5696127d74a5fe98b12f86b824940f50cb701abe": {
+      "decision": "exclude",
+      "reason": "Izvan trenutačnog užeg izbora za profesionalni portfolio nakon vizualnog pregleda."
+    },
+    "90cd7e53f575efc65cf7922ac0d79568925decbf5b0c21b227ecc51422d97f4f": {
+      "decision": "exclude",
+      "reason": "Izvan trenutačnog užeg izbora za profesionalni portfolio nakon vizualnog pregleda."
+    },
+    "f43c0f49c209fd29293ecfc4afafa7ec400e941b04b310930e402bf4b691e4d0": {
+      "decision": "exclude",
+      "reason": "Izvan trenutačnog užeg izbora za profesionalni portfolio nakon vizualnog pregleda."
+    },
+    "e05322677ffffc4b1ba9b6adf0f35fe42fc07ed6cb198eb3d62d35509ce16489": {
+      "decision": "exclude",
+      "reason": "Izvan trenutačnog užeg izbora za profesionalni portfolio nakon vizualnog pregleda."
+    },
+    "cfcb5bab09b62cb921aca748b10708d3a00b685fd8dce2ea0aea994255bbb015": {
+      "decision": "exclude",
+      "reason": "Izvan trenutačnog užeg izbora za profesionalni portfolio nakon vizualnog pregleda."
+    },
+    "86f1cfd230ed95d06670d318363eef185151a5c4692a1fbf36b7f05d107b0ed6": {
+      "decision": "exclude",
+      "reason": "Izvan trenutačnog užeg izbora za profesionalni portfolio nakon vizualnog pregleda."
+    },
+    "9c386ad5864ce2a17c2aac54a4f5ed9b5a71b3fa34ffb9c388d90cf9e2f10b0d": {
+      "decision": "exclude",
+      "reason": "Izvan trenutačnog užeg izbora za profesionalni portfolio nakon vizualnog pregleda."
+    },
+    "c30732b30a78258a59edbcec62b64eaf59565b078f6d803ccf7355db0e223f65": {
+      "decision": "exclude",
+      "reason": "Izvan trenutačnog užeg izbora za profesionalni portfolio nakon vizualnog pregleda."
+    },
+    "be667ed6d67817581b85402a29c44dd7fa8f961332a481d16c4c369c2e4d1607": {
+      "decision": "exclude",
+      "reason": "Izvan trenutačnog užeg izbora za profesionalni portfolio nakon vizualnog pregleda."
+    },
+    "f6b450927cb98e8571dc4e8a2093a129dddadd3330064660870ec3019b6929d2": {
+      "decision": "exclude",
+      "reason": "Izvan trenutačnog užeg izbora za profesionalni portfolio nakon vizualnog pregleda."
+    },
+    "84f2f1f57378d121c20be4e47cf84ef09606a2813a4160887546c184e3d0b07b": {
+      "decision": "exclude",
+      "reason": "Izvan trenutačnog užeg izbora za profesionalni portfolio nakon vizualnog pregleda."
+    },
+    "753bb345170419bdacd0831c000cc04b755ffc7debc48fbdec20b047088bb551": {
+      "decision": "exclude",
+      "reason": "Izvan trenutačnog užeg izbora za profesionalni portfolio nakon vizualnog pregleda."
+    },
+    "9a397f0772ff152b2bf375adf230c41ce4b321af491e397ed04f4357edbaffe5": {
+      "decision": "exclude",
+      "reason": "Izvan trenutačnog užeg izbora za profesionalni portfolio nakon vizualnog pregleda."
+    },
+    "0cc429b47a40834910236f7231d9babefb74804ab16f14363dbf9e4c49803078": {
+      "decision": "exclude",
+      "reason": "Izvan trenutačnog užeg izbora za profesionalni portfolio nakon vizualnog pregleda."
+    },
+    "655a8daab82450c83f55a3aa81678af12487859741db610344491362e3108fd8": {
+      "decision": "exclude",
+      "reason": "Izvan trenutačnog užeg izbora za profesionalni portfolio nakon vizualnog pregleda."
+    },
+    "b376c25e978bf8c6445662b32bda365e4f712a1d2ab8236f28da15141b04c645": {
+      "decision": "exclude",
+      "reason": "Izvan trenutačnog užeg izbora za profesionalni portfolio nakon vizualnog pregleda."
+    },
+    "108a2266d2961dbe94fd2ff1331dcd6f81965a910535420c582cc98909e0b9ca": {
+      "decision": "exclude",
+      "reason": "Izvan trenutačnog užeg izbora za profesionalni portfolio nakon vizualnog pregleda."
+    },
+    "d3d224bf21818a55421ed56cb8c3882247750ef746bce3c446a40745ed27c1b5": {
+      "decision": "exclude",
+      "reason": "Izvan trenutačnog užeg izbora za profesionalni portfolio nakon vizualnog pregleda."
+    },
+    "283be186d46020cd1a4a886aab579703fc6503a359f548c8013e252262b70da4": {
+      "decision": "exclude",
+      "reason": "Izvan trenutačnog užeg izbora za profesionalni portfolio nakon vizualnog pregleda."
+    },
+    "8f393347de68058074b7d9bfad844fb918662c3abd605244854a285d9df706eb": {
+      "decision": "exclude",
+      "reason": "Izvan trenutačnog užeg izbora za profesionalni portfolio nakon vizualnog pregleda."
+    },
+    "4ab00d30c9bb1f712e7c04fb75f4f87ee6f4aed5648396fc74a99265761c2253": {
+      "decision": "exclude",
+      "reason": "Izvan trenutačnog užeg izbora za profesionalni portfolio nakon vizualnog pregleda."
+    },
+    "7358f171358501bb520a0e57371978c8b89f6a57ddaad7a09ab125d604479920": {
+      "decision": "exclude",
+      "reason": "Izvan trenutačnog užeg izbora za profesionalni portfolio nakon vizualnog pregleda."
+    },
+    "0ba7ccd81f5b255cd50331fd25d36ea2e99c2c7d58536c0a2e8d18de9faf2728": {
+      "decision": "exclude",
+      "reason": "Izvan trenutačnog užeg izbora za profesionalni portfolio nakon vizualnog pregleda."
+    },
+    "1940fb9d3a6816147f045c14179e6d3f2fc2b2bf51aae9bebb4e6a8dd2749c86": {
+      "decision": "exclude",
+      "reason": "Izvan trenutačnog užeg izbora za profesionalni portfolio nakon vizualnog pregleda."
+    },
+    "5580c4d664c89d7e2deb73fa4bfd032225f5d32ca6c80c8d13b8cfc8e44a23e2": {
+      "decision": "exclude",
+      "reason": "Izvan trenutačnog užeg izbora za profesionalni portfolio nakon vizualnog pregleda."
+    },
+    "0cc11620bc804943d53a6c76ff9425583ffbd5831cd2978338eff3bd3bf35c83": {
+      "decision": "exclude",
+      "reason": "Izvan trenutačnog užeg izbora za profesionalni portfolio nakon vizualnog pregleda."
+    },
+    "62a53517af66e9fd7c0f69b0fe76e46948b6ac623015748a779e1515bf8ed8a4": {
+      "decision": "exclude",
+      "reason": "Izvan trenutačnog užeg izbora za profesionalni portfolio nakon vizualnog pregleda."
+    },
+    "94d4ac63144ff0d988d5700a64006eae64691fc3cf47111ca31e2a7e30b15070": {
+      "decision": "exclude",
+      "reason": "Izvan trenutačnog užeg izbora za profesionalni portfolio nakon vizualnog pregleda."
+    },
+    "826d4b3efbe957f0b8db92ae470a50a193bc1aa7315e5d555d6c20a9f517a8c0": {
+      "decision": "exclude",
+      "reason": "Izvan trenutačnog užeg izbora za profesionalni portfolio nakon vizualnog pregleda."
+    },
+    "d533c1265ee09fa482e61a80219789c2f796d41ef8a8e5d9fd2e4e588d24394d": {
+      "decision": "exclude",
+      "reason": "Izvan trenutačnog užeg izbora za profesionalni portfolio nakon vizualnog pregleda."
+    },
+    "6a38cdd810177564237e62892a5f10bf9c5214f21adec115fffdbb7e226f5503": {
+      "decision": "exclude",
+      "reason": "Izvan trenutačnog užeg izbora za profesionalni portfolio nakon vizualnog pregleda."
+    },
+    "817948bcb7f397e9d7d246bff8b3126f6cf5521a71bb7a67c41252cb055624c0": {
+      "decision": "exclude",
+      "reason": "Izvan trenutačnog užeg izbora za profesionalni portfolio nakon vizualnog pregleda."
+    },
+    "12e754405b0abcb8f2e1e7af4e190d9fc48bc871d23181ff174f5549b70f1aeb": {
+      "decision": "exclude",
+      "reason": "Izvan trenutačnog užeg izbora za profesionalni portfolio nakon vizualnog pregleda."
+    },
+    "3c4d5bc1d4d8df17ab9432da7299e085c43649bb61c76a18ff62d573cb7256fe": {
+      "decision": "exclude",
+      "reason": "Izvan trenutačnog užeg izbora za profesionalni portfolio nakon vizualnog pregleda."
+    },
+    "63c7bd08ab2970bb92437f1a50ff5791e91cf0039184ad1d094397e6d4ca7e2d": {
+      "decision": "exclude",
+      "reason": "Izvan trenutačnog užeg izbora za profesionalni portfolio nakon vizualnog pregleda."
+    },
+    "23d5858f84fb2be638cc27d098d181799404091771fb07f9363702fd7decf5b7": {
+      "decision": "exclude",
+      "reason": "Izvan trenutačnog užeg izbora za profesionalni portfolio nakon vizualnog pregleda."
+    },
+    "c078ee52becb1c84c8b1ed5dccd3f6f3e3c7da64ebb7667b55e61f0371d91525": {
+      "decision": "exclude",
+      "reason": "Izvan trenutačnog užeg izbora za profesionalni portfolio nakon vizualnog pregleda."
+    },
+    "fb596ffd8a8add22e7ceb9fe88c114552e321ba92d004242d7faffdfb4a95664": {
+      "decision": "exclude",
+      "reason": "Izvan trenutačnog užeg izbora za profesionalni portfolio nakon vizualnog pregleda."
+    },
+    "23706cd97d54f180af39c7e7de910a6c931871f2acfdf3105abf93c716a374f5": {
+      "decision": "exclude",
+      "reason": "Izvan trenutačnog užeg izbora za profesionalni portfolio nakon vizualnog pregleda."
+    },
+    "1ae636456be2a66b9cbc8a929e853f6b214072118f83705db12f9313ca802ec6": {
+      "decision": "exclude",
+      "reason": "Izvan trenutačnog užeg izbora za profesionalni portfolio nakon vizualnog pregleda."
+    },
+    "272fc924cc95a81ffc503d797785555c3aa1b76af6e4e1712fd447504527b38e": {
+      "decision": "exclude",
+      "reason": "Izvan trenutačnog užeg izbora za profesionalni portfolio nakon vizualnog pregleda."
+    },
+    "bddf7c26494b30698d70750e1a59e90865954e837d848c1341d6a28fa7f1f8b0": {
+      "decision": "exclude",
+      "reason": "Izvan trenutačnog užeg izbora za profesionalni portfolio nakon vizualnog pregleda."
+    },
+    "d493eba08a49da6c5be23fcaf6ceb529012fe0599d8ac05e4d9379680c2e3b22": {
+      "decision": "exclude",
+      "reason": "Izvan trenutačnog užeg izbora za profesionalni portfolio nakon vizualnog pregleda."
+    },
+    "d24c90d19f7ea7a1bf17887bb1b87a8dbb9d3bd907d7afa3238db7b048d57674": {
+      "decision": "exclude",
+      "reason": "Izvan trenutačnog užeg izbora za profesionalni portfolio nakon vizualnog pregleda."
+    },
+    "ed9c5ee28925ba0d15e8d1ae126764f592c4118e6e099e254349492f4dcbfc75": {
+      "decision": "exclude",
+      "reason": "Izvan trenutačnog užeg izbora za profesionalni portfolio nakon vizualnog pregleda."
+    },
+    "19e49715994455edeca88608a9c6f609b6749e1fdd76da10299f4b6292983c94": {
+      "decision": "exclude",
+      "reason": "Izvan trenutačnog užeg izbora za profesionalni portfolio nakon vizualnog pregleda."
+    },
+    "701b6765fc03de56e663fa821962f8f25324a054d93e653b921f6abba7b36725": {
+      "decision": "exclude",
+      "reason": "Izvan trenutačnog užeg izbora za profesionalni portfolio nakon vizualnog pregleda."
+    },
+    "6a8ac87eac2de574efd7931cc2abfb7de6f497c50b1acbd3b5dda7b061d57f2d": {
+      "decision": "exclude",
+      "reason": "Izvan trenutačnog užeg izbora za profesionalni portfolio nakon vizualnog pregleda."
+    },
+    "80f6e878685a7be12567ffc7f6886a4a3371438bc536fb5ace046665ecee99fc": {
+      "decision": "exclude",
+      "reason": "Izvan trenutačnog užeg izbora za profesionalni portfolio nakon vizualnog pregleda."
+    },
+    "0c84ef1a5e1b8e28b3fd0eedab855615dfb65c7dba7591adea5b1e32bb713d33": {
+      "decision": "exclude",
+      "reason": "Izvan trenutačnog užeg izbora za profesionalni portfolio nakon vizualnog pregleda."
+    },
+    "a6d5ab1c33bbeff6d71a0168b869f9e6c72fae46517f72331eba206ef92748a9": {
+      "decision": "exclude",
+      "reason": "Izvan trenutačnog užeg izbora za profesionalni portfolio nakon vizualnog pregleda."
+    },
+    "975aa7adc2955a257cf4a8d0c5b70c5ad0920e3c45a3a69d13cf3d88ba68cafb": {
+      "decision": "exclude",
+      "reason": "Izvan trenutačnog užeg izbora za profesionalni portfolio nakon vizualnog pregleda."
+    },
+    "87b09fa5d8deb14a5f66b449019afd7b19e544d46288dd423d9ab5db66632795": {
+      "decision": "exclude",
+      "reason": "Izvan trenutačnog užeg izbora za profesionalni portfolio nakon vizualnog pregleda."
+    },
+    "00808cab7cad8176706293654b96ddc8f6aad209c51b79b099fe55bdbd3869da": {
+      "decision": "exclude",
+      "reason": "Izvan trenutačnog užeg izbora za profesionalni portfolio nakon vizualnog pregleda."
+    },
+    "30714bb54fc647df218498e8364cf85a7518a1700150f651519285680f4dab78": {
+      "decision": "exclude",
+      "reason": "Izvan trenutačnog užeg izbora za profesionalni portfolio nakon vizualnog pregleda."
+    },
+    "18fab621a851105c428cbfa3cf16cf5fbc29d24077a3c1fd9aea88072374df5d": {
+      "decision": "exclude",
+      "reason": "Izvan trenutačnog užeg izbora za profesionalni portfolio nakon vizualnog pregleda."
+    },
+    "9ecb288e6fe52110d596bafd596b94f001685ed2ba25012b8d82524ebc9d39e8": {
+      "decision": "exclude",
+      "reason": "Izvan trenutačnog užeg izbora za profesionalni portfolio nakon vizualnog pregleda."
+    },
+    "e31cbcc736a9dc196387c63063b05019531bf8734370e6f4bee17a79a29b794e": {
+      "decision": "exclude",
+      "reason": "Izvan trenutačnog užeg izbora za profesionalni portfolio nakon vizualnog pregleda."
+    },
+    "9edb8ab25f14eb5e31ae2b34f24ee1a002eb86b25ff3d5de569999247673d942": {
+      "decision": "exclude",
+      "reason": "Izvan trenutačnog užeg izbora za profesionalni portfolio nakon vizualnog pregleda."
+    },
+    "96a69d74ce17a5ff94e668ac8d7f09d92953e3ee6e5dde309707da03bb17fc75": {
+      "decision": "exclude",
+      "reason": "Izvan trenutačnog užeg izbora za profesionalni portfolio nakon vizualnog pregleda."
+    },
+    "1a39a274f04cb8d484aa1754c93450703c8614c33c52d31e7420bbda1df6becb": {
+      "decision": "exclude",
+      "reason": "Izvan trenutačnog užeg izbora za profesionalni portfolio nakon vizualnog pregleda."
+    },
+    "d8ae1afdd1ada58c4c3e421f578e0898635666bcfb816c209e1b64d4a4e9127d": {
+      "decision": "exclude",
+      "reason": "Izvan trenutačnog užeg izbora za profesionalni portfolio nakon vizualnog pregleda."
+    },
+    "2d406ba566693b9e0f0a67a0e497c06b2cc5c02379f7a93a2d2074d83f3e997f": {
+      "decision": "exclude",
+      "reason": "Izvan trenutačnog užeg izbora za profesionalni portfolio nakon vizualnog pregleda."
+    },
+    "044a4036e9fbf2dfcb29c40ef34e4180e56f8f6eeaa1347026bf6e8540461550": {
+      "decision": "exclude",
+      "reason": "Izvan trenutačnog užeg izbora za profesionalni portfolio nakon vizualnog pregleda."
+    },
+    "869fdbad77d72121b22bd50b0ff0397d57120913bff6437a0b5c126f1b00a081": {
+      "decision": "exclude",
+      "reason": "Izvan trenutačnog užeg izbora za profesionalni portfolio nakon vizualnog pregleda."
+    },
+    "7a06d17ca08040949fc6ea3b1597feddd9ca46037affd744a9e4b4aeaca8a3e6": {
+      "decision": "exclude",
+      "reason": "Izvan trenutačnog užeg izbora za profesionalni portfolio nakon vizualnog pregleda."
+    },
+    "8ade35125865bbb8c504c538c59d2210b74b56dae7f4cf674ba562f326556ce8": {
+      "decision": "exclude",
+      "reason": "Izvan trenutačnog užeg izbora za profesionalni portfolio nakon vizualnog pregleda."
+    },
+    "ec8b4e0dece90bc65aeb119b01d2f714dc5f6a4f770683b56d18830c98c6f214": {
+      "decision": "exclude",
+      "reason": "Izvan trenutačnog užeg izbora za profesionalni portfolio nakon vizualnog pregleda."
+    },
+    "b064e4d01e009d850ba9ecaa07ed521d5a1f32b39de57aa834b01c3fc157b534": {
+      "decision": "exclude",
+      "reason": "Izvan trenutačnog užeg izbora za profesionalni portfolio nakon vizualnog pregleda."
+    },
+    "3c513510df35fc39abe41efd558f79920df624480a663171b126b93869a84891": {
+      "decision": "exclude",
+      "reason": "Izvan trenutačnog užeg izbora za profesionalni portfolio nakon vizualnog pregleda."
+    },
+    "49db6443651493bb5bb6d295fc0592c5cc69e555ee085747fb5d8fab60f31529": {
+      "decision": "exclude",
+      "reason": "Izvan trenutačnog užeg izbora za profesionalni portfolio nakon vizualnog pregleda."
+    },
+    "472e925b5af3fe50164123a80aeeb34db158d22f08c63abc3ae95ef8a2212bca": {
+      "decision": "exclude",
+      "reason": "Izvan trenutačnog užeg izbora za profesionalni portfolio nakon vizualnog pregleda."
+    },
+    "70f1bbafefbd5cbb80b2687a3ac2d2ef79b29b512a3ee7d07b1e8b041fd67252": {
+      "decision": "exclude",
+      "reason": "Izvan trenutačnog užeg izbora za profesionalni portfolio nakon vizualnog pregleda."
+    },
+    "974c531505dcf0cb62af29fedf9529f3efa88a0bafed7a6d4dc53d835b9e944e": {
+      "decision": "exclude",
+      "reason": "Izvan trenutačnog užeg izbora za profesionalni portfolio nakon vizualnog pregleda."
+    },
+    "b0e9c4b63767e6b190e1641bcba0b3366c50325889e8f1f15d2897be671f927c": {
+      "decision": "exclude",
+      "reason": "Izvan trenutačnog užeg izbora za profesionalni portfolio nakon vizualnog pregleda."
+    },
+    "1c96759e841ab2d4b2a78a05088825c5298d195801680da82416d82fbb9f3587": {
+      "decision": "exclude",
+      "reason": "Izvan trenutačnog užeg izbora za profesionalni portfolio nakon vizualnog pregleda."
+    },
+    "260cc921b3bb309d9d49163dbcba287bd7c5efa01189944f6a7f195f9d7e1627": {
+      "decision": "exclude",
+      "reason": "Izvan trenutačnog užeg izbora za profesionalni portfolio nakon vizualnog pregleda."
+    },
+    "ca829a48e2d89622ea8c6679417e2d61ac65a311ea09a4d37a0eee0062d284e9": {
+      "decision": "exclude",
+      "reason": "Izvan trenutačnog užeg izbora za profesionalni portfolio nakon vizualnog pregleda."
+    },
+    "e27719e303f28287cad3854ed6cd18fa7914187e40ed196b98ee470d2d6974ce": {
+      "decision": "exclude",
+      "reason": "Izvan trenutačnog užeg izbora za profesionalni portfolio nakon vizualnog pregleda."
+    },
+    "d9f0fdc9442456117883db26283a93a77cdf5037c63f3816f40f9eb0ee89a4a7": {
+      "decision": "exclude",
+      "reason": "Izvan trenutačnog užeg izbora za profesionalni portfolio nakon vizualnog pregleda."
+    },
+    "8aed1bbd92cb4ff42aa6b4b1bde9fac376bac7f91044f37d992e7a2dacfcb0e3": {
+      "decision": "exclude",
+      "reason": "Izvan trenutačnog užeg izbora za profesionalni portfolio nakon vizualnog pregleda."
+    },
+    "2f7e3fb95b38edf654f1718e1efc490b45eca57462f2c2f7dff1ecf9243b952f": {
+      "decision": "exclude",
+      "reason": "Izvan trenutačnog užeg izbora za profesionalni portfolio nakon vizualnog pregleda."
+    },
+    "f6a34aef575000657b6ea1beb849c07f776c75fc0f54351297f66f37cf7a966d": {
+      "decision": "exclude",
+      "reason": "Izvan trenutačnog užeg izbora za profesionalni portfolio nakon vizualnog pregleda."
+    },
+    "65df07b25150928ada197b901a56d0f8ab7c176dcc058f02e2919ff8a04c257c": {
+      "decision": "exclude",
+      "reason": "Izvan trenutačnog užeg izbora za profesionalni portfolio nakon vizualnog pregleda."
+    },
+    "eb24071329395f44702ee8b00f7971e4a3ae7bb9fc09cf0096f4d89415bb0a95": {
+      "decision": "exclude",
+      "reason": "Izvan trenutačnog užeg izbora za profesionalni portfolio nakon vizualnog pregleda."
+    },
+    "081d7d7d2f4793d3960dc439bf736fc5f82fa09723739e7fb5f6b1b95b39cdef": {
+      "decision": "exclude",
+      "reason": "Izvan trenutačnog užeg izbora za profesionalni portfolio nakon vizualnog pregleda."
+    },
+    "4998a3d32a25c0ac1994f06ab4166771d859aeac0161a467ea9ff085782e9fd4": {
+      "decision": "exclude",
+      "reason": "Izvan trenutačnog užeg izbora za profesionalni portfolio nakon vizualnog pregleda."
+    },
+    "0677930db3e7c9adbcda1f9d9561e91b55bbd57c8048c5e5f294502428d4f8b3": {
+      "decision": "exclude",
+      "reason": "Izvan trenutačnog užeg izbora za profesionalni portfolio nakon vizualnog pregleda."
+    },
+    "507783290ba5ac0c09ad2cdbb36cb8443b7a271556aeaaf93a223ffab1796d27": {
+      "decision": "exclude",
+      "reason": "Izvan trenutačnog užeg izbora za profesionalni portfolio nakon vizualnog pregleda."
+    },
+    "bfc4ac9b6bd0c43dccbe6e4b5ae9b8ba63dd39a98ea0a4c327ee4913d4406c65": {
+      "decision": "exclude",
+      "reason": "Izvan trenutačnog užeg izbora za profesionalni portfolio nakon vizualnog pregleda."
+    },
+    "e12719895c87ffffdece4ff7ef75ae63b02445f4d0879513fdd9acdd4323edc0": {
+      "decision": "exclude",
+      "reason": "Izvan trenutačnog užeg izbora za profesionalni portfolio nakon vizualnog pregleda."
+    },
+    "46dd56e7f2412bd3635a04daba524ab0f831a36a46b70ccbc21c08dfab1a6df1": {
+      "decision": "exclude",
+      "reason": "Izvan trenutačnog užeg izbora za profesionalni portfolio nakon vizualnog pregleda."
+    },
+    "2a327e95d0587d9fd5971dd712787d5bcbdd55f578790a5b9f8ca085ca2c330f": {
+      "decision": "exclude",
+      "reason": "Izvan trenutačnog užeg izbora za profesionalni portfolio nakon vizualnog pregleda."
+    },
+    "b032012a5df2dfe1105558500f41e58474dcc52936946dea59c796c725fa0539": {
+      "decision": "exclude",
+      "reason": "Izvan trenutačnog užeg izbora za profesionalni portfolio nakon vizualnog pregleda."
+    },
+    "36723b21f6838b481beca0eae538616dc7b3b8e54c6981178764e976802c1418": {
+      "decision": "exclude",
+      "reason": "Izvan trenutačnog užeg izbora za profesionalni portfolio nakon vizualnog pregleda."
+    },
+    "a16f5d72986d7d4b989d98e17d9b19bbc0d4c1c0e49cf3e35201f7ea60d836a5": {
+      "decision": "exclude",
+      "reason": "Izvan trenutačnog užeg izbora za profesionalni portfolio nakon vizualnog pregleda."
+    },
+    "1d82998bf6a916237f6e930a2de85df34beb7175464b13b648c1611c592dd1c5": {
+      "decision": "approve",
+      "reason": "Pejzaž zalaska sunca s prirodnim okvirom grana i odrazom na moru."
+    },
+    "c4729a853989e7e76fe01da1eb16047b8e7cdc74ca4f94db91043397e4f5e5c3": {
+      "decision": "exclude",
+      "reason": "Izvan trenutačnog užeg izbora za profesionalni portfolio nakon vizualnog pregleda."
+    },
+    "ca32297c5ff6590b7611bb021181f27e965c0b06a8aa687829c22863ddbe6f63": {
+      "decision": "exclude",
+      "reason": "Izvan trenutačnog užeg izbora za profesionalni portfolio nakon vizualnog pregleda."
+    },
+    "44235a1c115632ec465ce856dbb0ec13845331cd603f499ae5523f1510a8b1ea": {
+      "decision": "exclude",
+      "reason": "Izvan trenutačnog užeg izbora za profesionalni portfolio nakon vizualnog pregleda."
+    },
+    "82684644d4f494c1a3770499665b78931322ea4875ac01c5c4182d5bb33bd9ca": {
+      "decision": "exclude",
+      "reason": "Izvan trenutačnog užeg izbora za profesionalni portfolio nakon vizualnog pregleda."
+    },
+    "5a3405e71d11d3023f66e948ad47cd75986b11e24d66a27b439cad457bc820b4": {
+      "decision": "exclude",
+      "reason": "Izvan trenutačnog užeg izbora za profesionalni portfolio nakon vizualnog pregleda."
+    },
+    "1a5f35f4fa7e17db8281e72ca1b0238cc1c0efd4f0925fb273d6271f50c77c8b": {
+      "decision": "exclude",
+      "reason": "Izvan trenutačnog užeg izbora za profesionalni portfolio nakon vizualnog pregleda."
+    },
+    "6c7e1a2b3e26ce12e90f3afb156aaee578e9281531f6cd3a10c77ff71de60704": {
+      "decision": "exclude",
+      "reason": "Izvan trenutačnog užeg izbora za profesionalni portfolio nakon vizualnog pregleda."
+    },
+    "b3018f75822c3e556e7c161c2a429342e4c4767d1d68dce535e3b6e340cfe97b": {
+      "decision": "exclude",
+      "reason": "Izvan trenutačnog užeg izbora za profesionalni portfolio nakon vizualnog pregleda."
+    },
+    "c3de5b969c8ce5b6b978957426c2a34a56d2a2355b44a6e15022a111da7c2bec": {
+      "decision": "exclude",
+      "reason": "Izvan trenutačnog užeg izbora za profesionalni portfolio nakon vizualnog pregleda."
+    },
+    "24961fb16257c0599e21edbd70f50b7de97ed161a196144b607a73a9614e9b2e": {
+      "decision": "exclude",
+      "reason": "Izvan trenutačnog užeg izbora za profesionalni portfolio nakon vizualnog pregleda."
+    },
+    "243b0c8181012795087be4e647d8ca1ab1f7f9bf8e0709f259849df82e584da5": {
+      "decision": "exclude",
+      "reason": "Izvan trenutačnog užeg izbora za profesionalni portfolio nakon vizualnog pregleda."
+    },
+    "5ec9dcb8664b30aa0b35b94dba9ae999a49c9e702acc6cfc36b128c96a45f90d": {
+      "decision": "exclude",
+      "reason": "Izvan trenutačnog užeg izbora za profesionalni portfolio nakon vizualnog pregleda."
+    },
+    "9a86393fdc739d39cf6ba6e575a651e676106f561b2cd9f2dc16d54f0e7b64e9": {
+      "decision": "exclude",
+      "reason": "Izvan trenutačnog užeg izbora za profesionalni portfolio nakon vizualnog pregleda."
+    },
+    "ef9699b8b4c115063c299ca0336a435fbd379586eef55408edc6330bcffcea86": {
+      "decision": "exclude",
+      "reason": "Izvan trenutačnog užeg izbora za profesionalni portfolio nakon vizualnog pregleda."
+    },
+    "8bbe643e4dff71bc9aa5538c0e67b0f162715c9d59271e2ee9a6a06aabd4c228": {
+      "decision": "exclude",
+      "reason": "Izvan trenutačnog užeg izbora za profesionalni portfolio nakon vizualnog pregleda."
+    },
+    "fb498daf8a891612fded0c90f23612be2a62d519a67dc47e45351f3698be760a": {
+      "decision": "exclude",
+      "reason": "Izvan trenutačnog užeg izbora za profesionalni portfolio nakon vizualnog pregleda."
+    },
+    "2fd41418ee85cabc698ca5ef09c4229bdcac696593fcfb009df1368d668676bc": {
+      "decision": "exclude",
+      "reason": "Izvan trenutačnog užeg izbora za profesionalni portfolio nakon vizualnog pregleda."
+    },
+    "8f15649daf03bb677a72edbab0f41e650c141a4e71e308793b45f6cbcc44a49d": {
+      "decision": "exclude",
+      "reason": "Izvan trenutačnog užeg izbora za profesionalni portfolio nakon vizualnog pregleda."
+    },
+    "b0863e6b80becbe3171f204a1c562582422cf800b22edce14bd12dc676722ba8": {
+      "decision": "exclude",
+      "reason": "Izvan trenutačnog užeg izbora za profesionalni portfolio nakon vizualnog pregleda."
+    },
+    "3c72ba5c0841b39072263d53a5ee1c565c1768fed586b56702cccf4a44647461": {
+      "decision": "exclude",
+      "reason": "Izvan trenutačnog užeg izbora za profesionalni portfolio nakon vizualnog pregleda."
+    },
+    "bf89036399027f78ab5434db23b84f11a7751feeb815a1d117ae66c22a67251c": {
+      "decision": "exclude",
+      "reason": "Izvan trenutačnog užeg izbora za profesionalni portfolio nakon vizualnog pregleda."
+    },
+    "04ef8641307da80914b36627b1a17cf10269073edf9f3b873661dcfb96bf193d": {
+      "decision": "exclude",
+      "reason": "Izvan trenutačnog užeg izbora za profesionalni portfolio nakon vizualnog pregleda."
+    },
+    "6ae4e042d3310ebe9e3cbc34d8acc1492263d3c4236e63addc754db9b05a58b8": {
+      "decision": "exclude",
+      "reason": "Izvan trenutačnog užeg izbora za profesionalni portfolio nakon vizualnog pregleda."
+    },
+    "c73657b26636102751bcacf3c007ea903a1c43a001089d957e7d3f9ce1fce871": {
+      "decision": "exclude",
+      "reason": "Izvan trenutačnog užeg izbora za profesionalni portfolio nakon vizualnog pregleda."
+    },
+    "e9556fd0ae6a06ff1c20ff4d95b3d63835dd5b13c3da3763b691176be4313cbe": {
+      "decision": "exclude",
+      "reason": "Izvan trenutačnog užeg izbora za profesionalni portfolio nakon vizualnog pregleda."
+    },
+    "a245069b301a4848aeb303118e576a29cef0afafe177164b28ae5e6036049caf": {
+      "decision": "exclude",
+      "reason": "Izvan trenutačnog užeg izbora za profesionalni portfolio nakon vizualnog pregleda."
+    },
+    "d71aa82c28b5f7bd514f7a67744ae5324b4f6236578e3f89db77a87b64994615": {
+      "decision": "exclude",
+      "reason": "Izvan trenutačnog užeg izbora za profesionalni portfolio nakon vizualnog pregleda."
+    },
+    "6aa9bcbcf871455ab2952050a75caf80e73e83d431aca4a42041faf2bfe078b7": {
+      "decision": "exclude",
+      "reason": "Izvan trenutačnog užeg izbora za profesionalni portfolio nakon vizualnog pregleda."
+    },
+    "b8449188e3fbabd86eae1642ad8fdf82aef115cada427f36391b76af2254216b": {
+      "decision": "exclude",
+      "reason": "Izvan trenutačnog užeg izbora za profesionalni portfolio nakon vizualnog pregleda."
+    },
+    "8cbc640fa90821eeeca86d6957c0206612e1976adb6c2035b7c394aaafe3c266": {
+      "decision": "exclude",
+      "reason": "Izvan trenutačnog užeg izbora za profesionalni portfolio nakon vizualnog pregleda."
+    },
+    "698b7df05076df2b68c8d2c5df38754a51d12094d837d3e035e6ee6b2ad22283": {
+      "decision": "exclude",
+      "reason": "Izvan trenutačnog užeg izbora za profesionalni portfolio nakon vizualnog pregleda."
+    },
+    "e7831c45498030020d78bb198af63c1b805596a7779e0d303c744672b83b3496": {
+      "decision": "exclude",
+      "reason": "Izvan trenutačnog užeg izbora za profesionalni portfolio nakon vizualnog pregleda."
+    },
+    "4ddd724860a49069568fe842843c51e90581362f0f4ba39023983d66b755ebb7": {
+      "decision": "exclude",
+      "reason": "Izvan trenutačnog užeg izbora za profesionalni portfolio nakon vizualnog pregleda."
+    },
+    "bc6c91ea3a40cd54455ee318ef1194817646aa516a330140fcac159d5937f2cc": {
+      "decision": "exclude",
+      "reason": "Izvan trenutačnog užeg izbora za profesionalni portfolio nakon vizualnog pregleda."
+    },
+    "f5784628b6b57670cd43c12adac0fca843bfacfe4535605e80d47298b92853be": {
+      "decision": "exclude",
+      "reason": "Izvan trenutačnog užeg izbora za profesionalni portfolio nakon vizualnog pregleda."
+    },
+    "2eebe40719c3e96a46e18ab06ff58619e256835972154f300558969d1dec93ac": {
+      "decision": "exclude",
+      "reason": "Izvan trenutačnog užeg izbora za profesionalni portfolio nakon vizualnog pregleda."
+    },
+    "1efda56ded284bdbdb7ccdca176f0294f3f7f29dec7541b0a743ab436169dc7d": {
+      "decision": "exclude",
+      "reason": "Izvan trenutačnog užeg izbora za profesionalni portfolio nakon vizualnog pregleda."
+    },
+    "3af2cb38ba6730a02d40a7d90e5eb1f90a02c08feaad697f7b9f51a8ef8ca8d7": {
+      "decision": "exclude",
+      "reason": "Izvan trenutačnog užeg izbora za profesionalni portfolio nakon vizualnog pregleda."
+    },
+    "8aca43cccab57ae88c81052ce884608b0c0eee4b3eeef7a43c225368476418bf": {
+      "decision": "exclude",
+      "reason": "Izvan trenutačnog užeg izbora za profesionalni portfolio nakon vizualnog pregleda."
+    },
+    "ef3aaba126af4a54d13b1424774b1a8702fce130160c77aefb2c65488f27c5e2": {
+      "decision": "exclude",
+      "reason": "Izvan trenutačnog užeg izbora za profesionalni portfolio nakon vizualnog pregleda."
+    },
+    "c4903421f2695f274596eab69cd086f141339e98dcc6dc8c2eca783d52e234b9": {
+      "decision": "exclude",
+      "reason": "Izvan trenutačnog užeg izbora za profesionalni portfolio nakon vizualnog pregleda."
+    },
+    "c4bc0a12705aac76aee2a10277f590ce238bf41e73cfde1e94520d8eb8b37f2d": {
+      "decision": "exclude",
+      "reason": "Izvan trenutačnog užeg izbora za profesionalni portfolio nakon vizualnog pregleda."
+    },
+    "ac156ce04b215593222f0db082974671ed6ed8bbba19299c98d388bbf24b39af": {
+      "decision": "exclude",
+      "reason": "Izvan trenutačnog užeg izbora za profesionalni portfolio nakon vizualnog pregleda."
+    },
+    "6be55357d0faa8e3ae698249c1d5b8e1fd6883a4744c5b20553f67eb7b018925": {
+      "decision": "exclude",
+      "reason": "Izvan trenutačnog užeg izbora za profesionalni portfolio nakon vizualnog pregleda."
+    },
+    "3cd5c2b7611f2f9a8705612a3237ec88acdaa301d72463538784a1dce3367f35": {
+      "decision": "exclude",
+      "reason": "Izvan trenutačnog užeg izbora za profesionalni portfolio nakon vizualnog pregleda."
+    },
+    "b68b4a156c5fd84ff1ab42563be3101358ba6de66f53793f7ba0836b251a3141": {
+      "decision": "exclude",
+      "reason": "Izvan trenutačnog užeg izbora za profesionalni portfolio nakon vizualnog pregleda."
+    },
+    "38087cda0d26eac44ba4101471ebe680675603f2fbefc707f193df03cc2db2d4": {
+      "decision": "exclude",
+      "reason": "Izvan trenutačnog užeg izbora za profesionalni portfolio nakon vizualnog pregleda."
+    },
+    "2f585b8f4ddb9314fe4e0696955865f561d3145ce52e7b7dca511814991f0af3": {
+      "decision": "exclude",
+      "reason": "Izvan trenutačnog užeg izbora za profesionalni portfolio nakon vizualnog pregleda."
+    },
+    "8d5199a4e6a0173ac3f04badde55f3f7e17227e273ef55559ffb373bea027c05": {
+      "decision": "exclude",
+      "reason": "Izvan trenutačnog užeg izbora za profesionalni portfolio nakon vizualnog pregleda."
+    },
+    "db2df54bbbd9a54939da570ed0cc9a80ac795a5b8ffc7a8f4dea4cf2fd06d0ed": {
+      "decision": "exclude",
+      "reason": "Izvan trenutačnog užeg izbora za profesionalni portfolio nakon vizualnog pregleda."
+    },
+    "e77a934ace65e9d888eb4c419040fa2ca391424ad7ceb3823cdafe3e1a1a3c69": {
+      "decision": "exclude",
+      "reason": "Izvan trenutačnog užeg izbora za profesionalni portfolio nakon vizualnog pregleda."
+    },
+    "dbdfade695d2f8592c0d0a3d1d92461b85492d59e0962fb0d370c15e3b63a325": {
+      "decision": "exclude",
+      "reason": "Izvan trenutačnog užeg izbora za profesionalni portfolio nakon vizualnog pregleda."
+    },
+    "2a4a1249286f8123d07531929ed20b20a5c9b9229ffdc429480cef5fcb465f12": {
+      "decision": "exclude",
+      "reason": "Izvan trenutačnog užeg izbora za profesionalni portfolio nakon vizualnog pregleda."
+    },
+    "d62a2d83a3a8b800d9ae0949bd7a17c1e2e8d1ee5f2521d94d3dcf12bb0c68c5": {
+      "decision": "exclude",
+      "reason": "Izvan trenutačnog užeg izbora za profesionalni portfolio nakon vizualnog pregleda."
+    },
+    "ddb0afefaac539beb5a628f0764fcbceea297766aedcb00d883b04e721d8c4df": {
+      "decision": "exclude",
+      "reason": "Izvan trenutačnog užeg izbora za profesionalni portfolio nakon vizualnog pregleda."
+    },
+    "624d7f32e8448dcd53e085faa73e29e73dff3a1245fe0e85e3be6ad13d81668d": {
+      "decision": "exclude",
+      "reason": "Izvan trenutačnog užeg izbora za profesionalni portfolio nakon vizualnog pregleda."
+    },
+    "eb63ed0d0c69e96476787db6ac51acb4760674552d1b95d38f35cc3252625ba6": {
+      "decision": "exclude",
+      "reason": "Izvan trenutačnog užeg izbora za profesionalni portfolio nakon vizualnog pregleda."
+    },
+    "305416b8f7ef3f3f2abc71d9a38e2b7c06e7d3e7beee467c90c74acfa641bcde": {
+      "decision": "exclude",
+      "reason": "Izvan trenutačnog užeg izbora za profesionalni portfolio nakon vizualnog pregleda."
+    },
+    "e00bc5c660e9ad929990393b74fbabcd3a5cba0131bea6585709dfd10543306f": {
+      "decision": "exclude",
+      "reason": "Izvan trenutačnog užeg izbora za profesionalni portfolio nakon vizualnog pregleda."
+    },
+    "d881b13d32fdd3fbc787128305ac5a64544ba4220219c9ff18036f46c13041c0": {
+      "decision": "exclude",
+      "reason": "Izvan trenutačnog užeg izbora za profesionalni portfolio nakon vizualnog pregleda."
+    },
+    "bff195e2b2227cafe5c0170d9cf2fea66e0ab059ca7fd373a7d064df3bcdd46b": {
+      "decision": "exclude",
+      "reason": "Izvan trenutačnog užeg izbora za profesionalni portfolio nakon vizualnog pregleda."
+    },
+    "1726f9beb731d5100f555b03aa74049ac0e2614d0be609bf2cc7ab08f64b3434": {
+      "decision": "exclude",
+      "reason": "Izvan trenutačnog užeg izbora za profesionalni portfolio nakon vizualnog pregleda."
+    },
+    "3680a927b1319f572da55bb1c5427fb8dd30119bff32359811971fcaf9f9d436": {
+      "decision": "exclude",
+      "reason": "Izvan trenutačnog užeg izbora za profesionalni portfolio nakon vizualnog pregleda."
+    },
+    "889ccaf138c8dad84b664ff8c5705ff249293a791c7a214c8ca4c16faeb0f089": {
+      "decision": "exclude",
+      "reason": "Izvan trenutačnog užeg izbora za profesionalni portfolio nakon vizualnog pregleda."
+    },
+    "9232eb812720236ea70d05a09a854f07237ba2d12c01ee75a4b45e7fae711238": {
+      "decision": "exclude",
+      "reason": "Izvan trenutačnog užeg izbora za profesionalni portfolio nakon vizualnog pregleda."
+    },
+    "83e6abd406a106a80600ed49df3683860c9efd373a88481b3bee91a7005583ab": {
+      "decision": "approve",
+      "reason": "Botanički detalj cvijeta s jasnim fokusom i odvajanjem pozadine."
+    },
+    "7888a12f585995f79e6c4e8063b50c422d8420fd2355ffcd654838644c5fb8df": {
+      "decision": "exclude",
+      "reason": "Izvan trenutačnog užeg izbora za profesionalni portfolio nakon vizualnog pregleda."
+    },
+    "aa09c874a78d6bffc773fe8ded304203ac865c292cfd42728e2a3d10b4bd441b": {
+      "decision": "exclude",
+      "reason": "Izvan trenutačnog užeg izbora za profesionalni portfolio nakon vizualnog pregleda."
+    },
+    "7aaf294b71fb8b625d3669322d49ec4c1ffa34ad859f918f7a53f3a248b50275": {
+      "decision": "exclude",
+      "reason": "Izvan trenutačnog užeg izbora za profesionalni portfolio nakon vizualnog pregleda."
+    },
+    "61261ee8d81f8db1db44b72e89360cbeda0fbaee0962b02f1231d5c75f311417": {
+      "decision": "exclude",
+      "reason": "Izvan trenutačnog užeg izbora za profesionalni portfolio nakon vizualnog pregleda."
+    }
+  }
+}

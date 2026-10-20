@@ -1,4 +1,4 @@
-"""Select ranked photographs while enforcing diversity across both collections."""
+"""Select portfolio-suitable photographs with global diversity and date windows."""
 from datetime import datetime
 
 
@@ -22,14 +22,17 @@ def same_scene(left, right, max_similarity=0.86):
     return False
 
 
-def select_collections(records, start, end):
-    ranked = sorted(records, key=lambda record: (-record['score'], record['source']))
+def select_collections(records, start, end, week_start):
+    ranked = sorted((record for record in records if record.get('portfolio_eligible', False)), key=lambda record: (-record['portfolio_score'], record['source']))
     used = []
     selections = {}
-    for key in ('najbolje-ikad', 'zadnjih-mjesec-dana'):
+    # Reserve recent work for the narrowest window before filling the month.
+    for key in ('zadnjih-tjedan-dana', 'najbolje-ikad', 'zadnjih-mjesec-dana'):
         selected = []
         for record in ranked:
             if key == 'zadnjih-mjesec-dana' and not (record['date'] and start <= datetime.fromisoformat(record['date']) < end):
+                continue
+            if key == 'zadnjih-tjedan-dana' and not (record['date'] and week_start <= datetime.fromisoformat(record['date']) < end):
                 continue
             if not all(not same_scene(record, other) for other in used):
                 continue
@@ -37,7 +40,5 @@ def select_collections(records, start, end):
             used.append(record)
             if len(selected) == 4:
                 break
-        if len(selected) != 4:
-            raise ValueError('Nema dovoljno raznolikih fotografija za dvije kolekcije. Objavljeni izbor nije promijenjen.')
         selections[key] = selected
-    return selections
+    return {key: selections[key] for key in ('najbolje-ikad', 'zadnjih-mjesec-dana', 'zadnjih-tjedan-dana')}
