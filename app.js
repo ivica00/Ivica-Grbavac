@@ -90,7 +90,7 @@ function render(category = 'sve') {
       const image = el('img', '', 'work-cover');
       image.src = cover; image.alt = work.coverAlt || work.title; image.loading = 'lazy';
       card.append(image);
-    } else if (!work.thumbnailOnly) card.append(el('div', work.category === 'glazba' ? '♫' : '↗', 'work-placeholder'));
+    } else if (!work.thumbnailOnly && work.contributionCounter !== 'anyps5') card.append(el('div', work.category === 'glazba' ? '♫' : '↗', 'work-placeholder'));
     card.append(el('div', [labels[work.category], work.year, work.role].filter(Boolean).join(' / '), 'work-meta'));
     card.append(el('h3', work.title));
     if (work.description) card.append(el('p', work.description));
