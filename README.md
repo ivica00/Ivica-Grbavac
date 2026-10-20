@@ -77,7 +77,9 @@ Koristi `"category": "razvoj"`, naslov, opis, godinu, neobaveznu naslovnicu i `u
 
 ## Automatski odabir fotografija
 
-`scripts/select_photos.py` lokalno rangira JPG/JPEG datoteke modelom **OpenAI CLIP ViT-B/32 + LAION Aesthetic Predictor**. Objavljuje dvije kolekcije po četiri fotografije: najbolje iz dostupne mape i najbolje iz prethodnog kalendarskog mjeseca do odabranog datuma (npr. 20.09.–20.10.). Estetski rezultat je procjena modela. Unutar svake kolekcije preskače točne i vrlo slične duplikate. Kategorije se mogu preklapati.
+`scripts/select_photos.py` lokalno rangira JPG/JPEG datoteke modelom **OpenAI CLIP ViT-B/32 + LAION Aesthetic Predictor**. Objavljuje dvije kolekcije po četiri fotografije: glavni izbor iz dostupne mape i četiri dodatne fotografije iz posljednjih mjesec dana (npr. 20.09.–20.10.). Estetski rezultat je procjena modela, a odabir uzima u obzir i raznolikost kadrova.
+
+Glavni izbor ima prednost. Mjesečni izbor isključuje sve već odabrane fotografije i vizualno slične kadrove. Provjera koristi CLIP značajke (kosinusna sličnost), perceptualni hash i vrijeme snimanja za različite poze u istoj seriji. Ograničenja vrijede kroz svih osam fotografija, bez preklapanja kategorija. Ako nema osam dovoljno različitih fotografija, skripta prekida bez izmjene galerije umjesto da popuni mjesta ponavljanjima. Prije objave treba pregledati `.photo-selection/contact-sheet.jpg`: model ne jamči savršen vizualni odabir.
 
 Datum uzima iz EXIF DateTimeOriginal, a ako nije dostupan iz EXIF DateTime. Fotografije bez datuma ne ulaze u mjesečni izbor. Izvorni JPG i DNG ostaju na računalu. Web dobiva samo WebP slike do 600 px po duljoj stranici, bez EXIF/GPS metapodataka. Klik za original trenutačno nije omogućen.
 
@@ -89,7 +91,9 @@ python scripts/select_photos.py --as-of 2026-10-20
 
 Za drugu mapu dodaj `--source "C:\putanja\do\fotografija"`. Datum određuje mjesečni prozor; postupak nije automatski zakazan. Za novu objavu treba ponovno pokrenuti skriptu i prenijeti promjene na GitHub.
 
-Potrebni su Python, PyTorch, Pillow i NumPy, te biblioteka transformers (u ovoj radnoj kopiji instalirana u `.local-packages`). Modeli se spremaju u `.model-cache`, a lokalni izvještaj s rezultatima i kontaktni list u `.photo-selection`. Te mape su isključene iz GitHuba. Modeli se preuzimaju pri prvom pokretanju; fotografije se ne šalju AI servisu.
+Potrebni su Python, PyTorch, Pillow i NumPy, te biblioteka transformers (u ovoj radnoj kopiji instalirana u `.local-packages`). Modeli se spremaju u `.model-cache`, a lokalni izvještaj, predmemorija CLIP značajki i kontaktni list u `.photo-selection`. Te mape su isključene iz GitHuba. Ponovno pokretanje analizira samo nove ili promijenjene datoteke. Modeli se preuzimaju pri prvom pokretanju; fotografije se ne šalju AI servisu.
+
+Provjera pravila odabira: `python -m unittest discover -s scripts -p "test_*.py"`.
 
 Izvor modela: https://github.com/LAION-AI/aesthetic-predictor
 

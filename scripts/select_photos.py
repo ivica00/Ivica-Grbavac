@@ -21,6 +21,7 @@ import numpy as np
 import torch
 from PIL import Image, ImageOps, ImageDraw
 from transformers import CLIPImageProcessor, CLIPVisionModelWithProjection
+from photo_selection import select_collections
 
 def main():
     parser = argparse.ArgumentParser()
@@ -40,17 +41,26 @@ def main():
     if not weights.exists():
         urllib.request.urlretrieve('https://raw.githubusercontent.com/LAION-AI/aesthetic-predictor/main/sa_0_4_vit_b_32_linear.pth', weights)
     torch.set_num_threads(1)
-    # CPU is portable across installed GPU driver configurations.
-    model = CLIPVisionModelWithProjection.from_pretrained('openai/clip-vit-base-patch32', use_safetensors=True).eval()
-    processor = CLIPImageProcessor.from_pretrained('openai/clip-vit-base-patch32')
-    predictor = torch.nn.Linear(512, 1)
-    predictor.load_state_dict(torch.load(weights, map_location='cpu', weights_only=True))
-    predictor.eval()
+    model = processor = predictor = None
+    score_path = report_dir / 'scores.json'
+    cached = json.loads(score_path.read_text(encoding='utf-8')) if score_path.exists() else {}
     paths = sorted(p for p in Path(args.source).rglob('*') if p.suffix.lower() in {'.jpg', '.jpeg'})
     records = []
     errors = []
     for index, path in enumerate(paths):
         try:
+            signature = f'{path.stat().st_size}:{path.stat().st_mtime_ns}'
+            previous = cached.get(str(path))
+            if previous and previous.get('signature') == signature and len(previous.get('embedding', [])) == 512:
+                records.append(previous)
+                continue
+            if model is None:
+                # CPU is portable across installed GPU driver configurations.
+                model = CLIPVisionModelWithProjection.from_pretrained('openai/clip-vit-base-patch32', use_safetensors=True).eval()
+                processor = CLIPImageProcessor.from_pretrained('openai/clip-vit-base-patch32')
+                predictor = torch.nn.Linear(512, 1)
+                predictor.load_state_dict(torch.load(weights, map_location='cpu', weights_only=True))
+                predictor.eval()
             with Image.open(path) as source:
                 exif = source.getexif()
                 raw_date = exif.get_ifd(34665).get(36867) or exif.get(306)
@@ -66,24 +76,16 @@ def main():
                 small = np.asarray(image.resize((9, 8)).convert('L'))
                 bits = (small[:, 1:] > small[:, :-1]).flatten()
                 dhash = sum(int(bit) << i for i, bit in enumerate(bits))
-                records.append({'source': str(path), 'date': captured.isoformat() if captured else None, 'score': score, 'dhash': dhash, 'sha256': hashlib.sha256(path.read_bytes()).hexdigest()})
+                record = {'source': str(path), 'date': captured.isoformat() if captured else None, 'score': score, 'dhash': dhash, 'sha256': hashlib.sha256(path.read_bytes()).hexdigest(), 'embedding': features[0].tolist(), 'signature': signature}
+                records.append(record)
+                cached[str(path)] = record
+                score_path.write_text(json.dumps(cached), encoding='utf-8')
             print(f'{index + 1}/{len(paths)} {path.name}: {score:.3f}', flush=True)
         except Exception as error:
             errors.append({'source': str(path), 'error': str(error)})
             print(f'SKIP {path.name}: {error}', flush=True)
     ranked = sorted(records, key=lambda record: (-record['score'], record['source']))
-    def pick(candidates):
-        selected = []
-        for record in candidates:
-            if all(record['sha256'] != other['sha256'] and (record['dhash'] ^ other['dhash']).bit_count() > 5 for other in selected):
-                selected.append(record)
-            if len(selected) == 4:
-                break
-        return selected
-    selections = {
-        'najbolje-ikad': pick(ranked),
-        'zadnjih-mjesec-dana': pick([record for record in ranked if record['date'] and start <= datetime.fromisoformat(record['date']) < end]),
-    }
+    selections = select_collections(records, start, end)
     if any(len(selection) < 4 for selection in selections.values()):
         raise RuntimeError('Not enough eligible distinct photographs; no gallery changes written.')
     output = ROOT / 'assets' / 'photos' / 'selected'
@@ -104,12 +106,12 @@ def main():
     titles = {'najbolje-ikad': '4 najbolje ikad', 'zadnjih-mjesec-dana': '4 najbolje u zadnjih mjesec dana'}
     for key, group in selections.items():
         photos = [{**exported[record['sha256']], 'alt': f'{titles[key]} — fotografija {i + 1}'} for i, record in enumerate(group)]
-        description = 'Četiri najbolje ocijenjene fotografije iz moje zbirke prema modelu CLIP / LAION Aesthetic Predictor.'
+        description = 'Četiri izdvojene fotografije iz moje zbirke, odabrane prema kvaliteti i raznolikosti kadrova.'
         if key == 'zadnjih-mjesec-dana':
-            description = f'Izbor prema datumu snimanja: {start:%d.%m.%Y.} – {day:%d.%m.%Y.} Rangirano modelom CLIP / LAION Aesthetic Predictor.'
+            description = f'Četiri dodatne fotografije snimljene od {start:%d.%m.%Y.} do {day:%d.%m.%Y.}, bez ponavljanja iz glavnog izbora.'
         catalog['works'].append({'id': key, 'title': titles[key], 'category': 'fotografija', 'description': description, 'thumbnailOnly': True, 'photos': photos})
     catalog_path.write_text(json.dumps(catalog, ensure_ascii=False, indent=2) + '\n', encoding='utf-8')
-    report = {'model': 'openai/clip-vit-base-patch32 + LAION sa_0_4_vit_b_32_linear', 'as_of': args.as_of, 'recent_from': start.isoformat(), 'date_policy': 'EXIF DateTimeOriginal, fallback EXIF DateTime; undated excluded from recent', 'ranked': ranked, 'selected': selections, 'errors': errors}
+    report = {'model': 'openai/clip-vit-base-patch32 + LAION sa_0_4_vit_b_32_linear', 'selection_policy': 'Aesthetic ranking; global CLIP cosine < 0.86; dHash distance > 10; burst exclusion at 180s and cosine >= 0.78; all-time first, recent excludes all previously selected scenes; fail instead of relaxing constraints', 'as_of': args.as_of, 'recent_from': start.isoformat(), 'date_policy': 'EXIF DateTimeOriginal, fallback EXIF DateTime; undated excluded from recent', 'ranked': ranked, 'selected': selections, 'errors': errors}
     (report_dir / 'report.json').write_text(json.dumps(report, ensure_ascii=False, indent=2), encoding='utf-8')
     sheet = Image.new('RGB', (1200, 430 * 2), '#20251f')
     draw = ImageDraw.Draw(sheet)
