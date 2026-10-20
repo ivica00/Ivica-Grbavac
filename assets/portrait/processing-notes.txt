@@ -1,0 +1,2 @@
+Mode: built-in image_gen. Use case: identity-preserve.
+Prompt: Edit the attached portrait into a professionally retouched editorial head-and-shoulders photograph for a personal creative/engineering portfolio. Preserve identity, facial proportions, age, hairstyle, beard, eyes, expression and three-quarter pose. Remove phone and bathroom tiles. Use a dark charcoal olive studio background, soft studio lighting, realistic skin texture, restrained warm tones and a black crew-neck shirt. Vertical 4:5 framing with full hair and headroom. No face reshaping, text or graphics.
