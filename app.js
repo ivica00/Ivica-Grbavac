@@ -95,6 +95,20 @@ function render(category = 'sve') {
     card.append(el('h3', work.title));
     if (work.description) card.append(el('p', work.description));
     if (work.selectionNote) card.append(el('p', work.selectionNote, 'selection-note'));
+    if (work.contributionCounter === 'anyps5') {
+      const stats = el('div', '', 'contributor-card');
+      stats.append(el('span', 'MOJI DOPRINOSI / GITHUB', 'contributor-label'));
+      const link = el('a', '', 'contributor-stat');
+      link.href = 'https://github.com/boykopovar/AnyPS5/commits?author=ivica00';
+      link.target = '_blank'; link.rel = 'noopener noreferrer';
+      link.setAttribute('aria-label', 'Moji commitovi na projektu AnyPS5');
+      const count = el('strong', '—'); count.id = 'anyps5-count';
+      const label = el('span', 'doprinosa'); label.append(el('small', '(commitovi)'));
+      link.append(count, label);
+      const status = el('span', 'Dohvaćanje s GitHuba…', 'contributor-status');
+      status.id = 'anyps5-status'; status.setAttribute('role', 'status');
+      stats.append(link, status); card.append(stats);
+    }
     if (Array.isArray(work.photos) && work.photos.length) {
       if (work.thumbnailOnly) {
         const grid = el('div', '', 'photo-thumbnails');
@@ -134,6 +148,7 @@ function render(category = 'sve') {
     }
     list.append(card);
   });
+  if (document.querySelector('#anyps5-count')) updateContributions();
 }
 document.querySelectorAll('[data-filter]').forEach(button => button.addEventListener('click', () => render(button.dataset.filter)));
 document.querySelectorAll('[data-category]').forEach(anchor => anchor.addEventListener('click', () => render(anchor.dataset.category)));
@@ -152,7 +167,9 @@ fetch('content/works.json', {cache: 'no-cache'}).then(response => { if (!respons
 const contributionCacheKey = 'anyps5-ivica00-v1';
 const contributionTTL = 15 * 60 * 1000;
 let contributionRequest = false;
+let contributionData = null;
 function displayContributions(data, stale = false) {
+  if (!document.querySelector('#anyps5-count')) return;
   document.querySelector('#anyps5-count').textContent = new Intl.NumberFormat('hr-HR').format(data.count);
   const checked = new Date(data.checkedAt).toLocaleString('hr-HR', {dateStyle: 'short', timeStyle: 'short'});
   document.querySelector('#anyps5-status').textContent = `${stale ? 'Zadnji spremljeni podatak' : 'Provjereno na GitHubu'}: ${checked}. GitHub može kasniti nekoliko sati.`;
@@ -164,9 +181,9 @@ function readContributions() {
   } catch { return null; }
 }
 async function updateContributions() {
-  if (contributionRequest) return;
-  const cached = readContributions();
+  const cached = contributionData || readContributions();
   if (cached) displayContributions(cached);
+  if (contributionRequest) return;
   if (cached && Date.now() - cached.checkedAt < contributionTTL) return;
   contributionRequest = true;
   try {
@@ -187,12 +204,12 @@ async function updateContributions() {
     if (count === null) count = 0;
     if (!Number.isSafeInteger(count) || count < 0) throw new Error('Invalid count');
     const data = {count, checkedAt: Date.now()};
+    contributionData = data;
     displayContributions(data);
     try { localStorage.setItem(contributionCacheKey, JSON.stringify(data)); } catch { /* Storage is optional. */ }
   } catch {
     if (cached) displayContributions(cached, true);
-    else document.querySelector('#anyps5-status').textContent = 'Broj trenutačno nije dostupan. Pogledaj doprinose na GitHubu.';
+    else if (document.querySelector('#anyps5-status')) document.querySelector('#anyps5-status').textContent = 'Broj trenutačno nije dostupan. Pogledaj doprinose na GitHubu.';
   } finally { contributionRequest = false; }
 }
-updateContributions();
-setInterval(() => { if (!document.hidden) updateContributions(); }, contributionTTL);
+setInterval(() => { if (!document.hidden && document.querySelector('#anyps5-count')) updateContributions(); }, contributionTTL);

@@ -92,6 +92,16 @@
           "largeSrc": "assets/photos/selected/4beedace67e7e347-large.webp"
         }
       ]
+    },
+    {
+      "id": "anyps5",
+      "title": "AnyPS5",
+      "category": "razvoj",
+      "role": "Open source kontributor",
+      "description": "Kontributor na projektu boykopovar/AnyPS5. Alat za automatsko portanje PS5 izvršnih datoteka na Linux i Windows.",
+      "url": "https://github.com/boykopovar/AnyPS5",
+      "linkLabel": "Pogledaj projekt na GitHubu ↗",
+      "contributionCounter": "anyps5"
     }
   ]
 }
