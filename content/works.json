@@ -12,25 +12,29 @@
           "src": "assets/photos/selected/1d82998bf6a91623.webp",
           "width": 600,
           "height": 400,
-          "alt": "4 najbolje ikad — fotografija 1"
+          "alt": "4 najbolje ikad — fotografija 1",
+          "largeSrc": "assets/photos/selected/1d82998bf6a91623-large.webp"
         },
         {
           "src": "assets/photos/selected/d30ab59809907b9c.webp",
           "width": 600,
           "height": 400,
-          "alt": "4 najbolje ikad — fotografija 2"
+          "alt": "4 najbolje ikad — fotografija 2",
+          "largeSrc": "assets/photos/selected/d30ab59809907b9c-large.webp"
         },
         {
           "src": "assets/photos/selected/62cc6dd93a3df0a4.webp",
           "width": 600,
           "height": 400,
-          "alt": "4 najbolje ikad — fotografija 3"
+          "alt": "4 najbolje ikad — fotografija 3",
+          "largeSrc": "assets/photos/selected/62cc6dd93a3df0a4-large.webp"
         },
         {
           "src": "assets/photos/selected/77b75167a3b56247.webp",
           "width": 600,
           "height": 400,
-          "alt": "4 najbolje ikad — fotografija 4"
+          "alt": "4 najbolje ikad — fotografija 4",
+          "largeSrc": "assets/photos/selected/77b75167a3b56247-large.webp"
         }
       ]
     },
@@ -46,13 +50,15 @@
           "src": "assets/photos/selected/83e6abd406a106a8.webp",
           "width": 600,
           "height": 400,
-          "alt": "4 najbolje u zadnjih mjesec dana — fotografija 1"
+          "alt": "4 najbolje u zadnjih mjesec dana — fotografija 1",
+          "largeSrc": "assets/photos/selected/83e6abd406a106a8-large.webp"
         },
         {
           "src": "assets/photos/selected/ae3f9db750bb56fc.webp",
           "width": 600,
           "height": 400,
-          "alt": "4 najbolje u zadnjih mjesec dana — fotografija 2"
+          "alt": "4 najbolje u zadnjih mjesec dana — fotografija 2",
+          "largeSrc": "assets/photos/selected/ae3f9db750bb56fc-large.webp"
         }
       ]
     },
@@ -68,19 +74,22 @@
           "src": "assets/photos/selected/6fc39f77e1787239.webp",
           "width": 600,
           "height": 400,
-          "alt": "4 najbolje u zadnjih tjedan dana — fotografija 1"
+          "alt": "4 najbolje u zadnjih tjedan dana — fotografija 1",
+          "largeSrc": "assets/photos/selected/6fc39f77e1787239-large.webp"
         },
         {
           "src": "assets/photos/selected/e4197b50b690b89c.webp",
           "width": 600,
           "height": 400,
-          "alt": "4 najbolje u zadnjih tjedan dana — fotografija 2"
+          "alt": "4 najbolje u zadnjih tjedan dana — fotografija 2",
+          "largeSrc": "assets/photos/selected/e4197b50b690b89c-large.webp"
         },
         {
           "src": "assets/photos/selected/4beedace67e7e347.webp",
           "width": 600,
           "height": 400,
-          "alt": "4 najbolje u zadnjih tjedan dana — fotografija 3"
+          "alt": "4 najbolje u zadnjih tjedan dana — fotografija 3",
+          "largeSrc": "assets/photos/selected/4beedace67e7e347-large.webp"
         }
       ]
     }

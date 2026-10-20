@@ -85,7 +85,7 @@ Zbog zabrane ponavljanja prvo se rezervira do četiri fotografije za najuže, tj
 
 Za datum 20.10.2026. mjesečni prozor je 20.09.–20.10., a tjedni prozor 14.10.–20.10. (sedam datuma uključujući odabrani dan). Koristi se datum snimanja, ne datum kopiranja datoteke.
 
-Datum uzima iz EXIF DateTimeOriginal, a ako nije dostupan iz EXIF DateTime. Fotografije bez datuma ne ulaze u mjesečni ni tjedni izbor. Izvorni JPG i DNG ostaju na računalu. Web dobiva samo WebP slike do 600 px po duljoj stranici, bez EXIF/GPS metapodataka. Klik za original trenutačno nije omogućen.
+Datum uzima iz EXIF DateTimeOriginal, a ako nije dostupan iz EXIF DateTime. Fotografije bez datuma ne ulaze u mjesečni ni tjedni izbor. Izvorni JPG i DNG ostaju na računalu. Web dobiva WebP preglede do 600 px i zasebne veće web verzije do 2400 px po duljoj stranici, bez EXIF/GPS metapodataka. Klik otvara samo odabranu veću verziju; ostale se učitavaju tek prelaskom strelicama. Izvorne fotografije se ne objavljuju. Polje `largeSrc` određuje putanju veće verzije.
 
 Pokretanje iz mape projekta:
 

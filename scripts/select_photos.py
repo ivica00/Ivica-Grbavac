@@ -1,6 +1,6 @@
 """Rank local JPEGs with CLIP ViT-B/32 + LAION linear aesthetic predictor.
 
-Only exported 600px thumbnails and the three gallery records are published.
+Only exported web images (600px previews, 2400px gallery images) are published.
 Run from the project root: python scripts/select_photos.py --as-of 2026-10-20
 """
 import argparse
@@ -99,11 +99,19 @@ def main():
         target = output / (record['sha256'][:16] + '.webp')
         with Image.open(record['source']) as source:
             image = ImageOps.exif_transpose(source).convert('RGB')
+            large = image.copy()
+            large.thumbnail((2400, 2400), Image.Resampling.LANCZOS)
+            large_clean = Image.frombytes('RGB', large.size, large.tobytes())
+            large_target = output / (record['sha256'][:16] + '-large.webp')
+            for quality in (84, 78, 72, 66):
+                large_clean.save(large_target, 'WEBP', quality=quality, method=6)
+                if large_target.stat().st_size <= 750_000:
+                    break
             image.thumbnail((600, 600), Image.Resampling.LANCZOS)
-            # Fresh image drops EXIF/GPS and other source metadata.
+            # Fresh images drop EXIF/GPS and other source metadata.
             clean = Image.frombytes('RGB', image.size, image.tobytes())
             clean.save(target, 'WEBP', quality=80, method=6)
-            exported[record['sha256']] = {'src': target.relative_to(ROOT).as_posix(), 'width': clean.width, 'height': clean.height}
+            exported[record['sha256']] = {'src': target.relative_to(ROOT).as_posix(), 'width': clean.width, 'height': clean.height, 'largeSrc': large_target.relative_to(ROOT).as_posix()}
     catalog_path = ROOT / 'content' / 'works.json'
     catalog = json.loads(catalog_path.read_text(encoding='utf-8'))
     catalog['works'] = [work for work in catalog['works'] if work.get('id') not in selections]
