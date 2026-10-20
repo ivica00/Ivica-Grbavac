@@ -1,3 +1,70 @@
 {
-  "works": []
+  "works": [
+    {
+      "id": "najbolje-ikad",
+      "title": "4 najbolje ikad",
+      "category": "fotografija",
+      "description": "Četiri najbolje ocijenjene fotografije iz moje zbirke prema modelu CLIP / LAION Aesthetic Predictor.",
+      "thumbnailOnly": true,
+      "photos": [
+        {
+          "src": "assets/photos/selected/6c7e1a2b3e26ce12.webp",
+          "width": 600,
+          "height": 400,
+          "alt": "4 najbolje ikad — fotografija 1"
+        },
+        {
+          "src": "assets/photos/selected/1a5f35f4fa7e17db.webp",
+          "width": 600,
+          "height": 400,
+          "alt": "4 najbolje ikad — fotografija 2"
+        },
+        {
+          "src": "assets/photos/selected/1d82998bf6a91623.webp",
+          "width": 600,
+          "height": 400,
+          "alt": "4 najbolje ikad — fotografija 3"
+        },
+        {
+          "src": "assets/photos/selected/24961fb16257c059.webp",
+          "width": 600,
+          "height": 400,
+          "alt": "4 najbolje ikad — fotografija 4"
+        }
+      ]
+    },
+    {
+      "id": "zadnjih-mjesec-dana",
+      "title": "4 najbolje u zadnjih mjesec dana",
+      "category": "fotografija",
+      "description": "Izbor prema datumu snimanja: 20.09.2026. – 20.10.2026. Rangirano modelom CLIP / LAION Aesthetic Predictor.",
+      "thumbnailOnly": true,
+      "photos": [
+        {
+          "src": "assets/photos/selected/6c7e1a2b3e26ce12.webp",
+          "width": 600,
+          "height": 400,
+          "alt": "4 najbolje u zadnjih mjesec dana — fotografija 1"
+        },
+        {
+          "src": "assets/photos/selected/1a5f35f4fa7e17db.webp",
+          "width": 600,
+          "height": 400,
+          "alt": "4 najbolje u zadnjih mjesec dana — fotografija 2"
+        },
+        {
+          "src": "assets/photos/selected/1d82998bf6a91623.webp",
+          "width": 600,
+          "height": 400,
+          "alt": "4 najbolje u zadnjih mjesec dana — fotografija 3"
+        },
+        {
+          "src": "assets/photos/selected/24961fb16257c059.webp",
+          "width": 600,
+          "height": 400,
+          "alt": "4 najbolje u zadnjih mjesec dana — fotografija 4"
+        }
+      ]
+    }
+  ]
 }

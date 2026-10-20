@@ -53,18 +53,36 @@ function render(category = 'sve') {
   }
   selected.forEach(work => {
     const card = el('article', '', 'work');
+    if (work.thumbnailOnly) card.classList.add('thumbnail-collection');
     const cover = safeUrl(work.cover);
     if (cover) {
       const image = el('img', '', 'work-cover');
       image.src = cover; image.alt = work.coverAlt || work.title; image.loading = 'lazy';
       card.append(image);
-    } else card.append(el('div', work.category === 'glazba' ? '♫' : '↗', 'work-placeholder'));
+    } else if (!work.thumbnailOnly) card.append(el('div', work.category === 'glazba' ? '♫' : '↗', 'work-placeholder'));
     card.append(el('div', [labels[work.category], work.year, work.role].filter(Boolean).join(' / '), 'work-meta'));
     card.append(el('h3', work.title));
     if (work.description) card.append(el('p', work.description));
     if (Array.isArray(work.photos) && work.photos.length) {
+      if (work.thumbnailOnly) {
+        const grid = el('div', '', 'photo-thumbnails');
+        work.photos.forEach(photo => {
+          const src = safeUrl(photo.src);
+          if (!src) return;
+          const image = el('img');
+          image.src = src;
+          image.alt = photo.alt || work.title;
+          image.loading = 'lazy';
+          image.decoding = 'async';
+          if (photo.width) image.width = photo.width;
+          if (photo.height) image.height = photo.height;
+          grid.append(image);
+        });
+        card.append(grid);
+      } else {
       const button = el('button', 'Otvori galeriju ↗', 'gallery-open');
       button.type = 'button'; button.addEventListener('click', () => showGallery(work)); card.append(button);
+      }
     }
     const audioUrl = safeUrl(work.audio);
     if (audioUrl) {
@@ -85,7 +103,7 @@ document.querySelector('.close').addEventListener('click', () => dialog.close())
 dialog.addEventListener('click', event => { if (event.target === dialog) { const rect = dialog.getBoundingClientRect(); if (event.clientX < rect.left || event.clientX > rect.right || event.clientY < rect.top || event.clientY > rect.bottom) dialog.close(); } });
 document.addEventListener('play', event => { if (event.target.tagName === 'AUDIO') document.querySelectorAll('audio').forEach(audio => { if (audio !== event.target) audio.pause(); }); }, true);
 document.querySelector('#year').textContent = new Date().getFullYear();
-fetch('content/works.json').then(response => { if (!response.ok) throw new Error('Loading failed'); return response.json(); }).then(data => {
+fetch('content/works.json', {cache: 'no-cache'}).then(response => { if (!response.ok) throw new Error('Loading failed'); return response.json(); }).then(data => {
   if (!Array.isArray(data.works)) throw new Error('Invalid works');
   works = data.works.filter(work => work.published !== false && labels[work.category] && typeof work.title === 'string');
   const active = document.querySelector('[data-filter].active');

@@ -75,7 +75,25 @@ Koristi `"category": "razvoj"`, naslov, opis, godinu, neobaveznu naslovnicu i `u
 - Preporučeni nazivi datoteka: mala slova, bez razmaka i kvačica.
 - Sve objavljene fotografije i snimke javno su dostupne.
 
-## Lokalni pregled
+## Automatski odabir fotografija
+
+`scripts/select_photos.py` lokalno rangira JPG/JPEG datoteke modelom **OpenAI CLIP ViT-B/32 + LAION Aesthetic Predictor**. Objavljuje dvije kolekcije po četiri fotografije: najbolje iz dostupne mape i najbolje iz prethodnog kalendarskog mjeseca do odabranog datuma (npr. 20.09.–20.10.). Estetski rezultat je procjena modela. Unutar svake kolekcije preskače točne i vrlo slične duplikate. Kategorije se mogu preklapati.
+
+Datum uzima iz EXIF DateTimeOriginal, a ako nije dostupan iz EXIF DateTime. Fotografije bez datuma ne ulaze u mjesečni izbor. Izvorni JPG i DNG ostaju na računalu. Web dobiva samo WebP slike do 600 px po duljoj stranici, bez EXIF/GPS metapodataka. Klik za original trenutačno nije omogućen.
+
+Pokretanje iz mape projekta:
+
+```powershell
+python scripts/select_photos.py --as-of 2026-10-20
+```
+
+Za drugu mapu dodaj `--source "C:\putanja\do\fotografija"`. Datum određuje mjesečni prozor; postupak nije automatski zakazan. Za novu objavu treba ponovno pokrenuti skriptu i prenijeti promjene na GitHub.
+
+Potrebni su Python, PyTorch, Pillow i NumPy, te biblioteka transformers (u ovoj radnoj kopiji instalirana u `.local-packages`). Modeli se spremaju u `.model-cache`, a lokalni izvještaj s rezultatima i kontaktni list u `.photo-selection`. Te mape su isključene iz GitHuba. Modeli se preuzimaju pri prvom pokretanju; fotografije se ne šalju AI servisu.
+
+Izvor modela: https://github.com/LAION-AI/aesthetic-predictor
+
+## Lokalni pregled stranice
 
 Pokreni `python -m http.server 4173` u mapi projekta i otvori `http://localhost:4173`. Otvaranje HTML-a dvostrukim klikom ne učitava JSON pouzdano.
 
