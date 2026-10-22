@@ -6,3 +6,7 @@ Thumbs.db
 .model-cache/
 .photo-selection/
 __pycache__/
+
+# Original audio masters remain local; the site uses MP3.
+music/*.wav
+music/*.WAV

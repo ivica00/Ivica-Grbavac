@@ -17,6 +17,101 @@ function safeUrl(value) {
   } catch { return null; }
 }
 let galleryWork = null;
+let musicPlayer = null;
+const formatTime = value => Number.isFinite(value) ? `${Math.floor(value / 60)}:${String(Math.floor(value % 60)).padStart(2, '0')}` : '0:00';
+function createMusicPlayer(tracks) {
+  const panel = el('section', '', 'music-player');
+  panel.setAttribute('aria-label', 'Glazbeni radovi');
+  const audio = el('audio');
+  audio.preload = 'none';
+  const header = el('div', '', 'music-heading');
+  header.append(el('span', 'MOJI ZVUKOVI', 'eyebrow'), el('span', `${tracks.length} snimki / ${formatTime(tracks.reduce((sum, track) => sum + track.duration, 0))}`, 'music-total'));
+  const deck = el('div', '', 'music-deck');
+  const visual = el('div', '', 'music-visual');
+  visual.setAttribute('aria-hidden', 'true');
+  for (let i = 0; i < 17; i++) {
+    const bar = el('i');
+    bar.style.setProperty('--height', `${16 + ((i * 37 + 19) % 65)}%`);
+    bar.style.setProperty('--delay', `${i * -.13}s`);
+    visual.append(bar);
+  }
+  const info = el('div', '', 'music-info');
+  const title = el('h3');
+  const status = el('p', 'Odaberi snimku i poslušaj.');
+  status.setAttribute('role', 'status');
+  info.append(title, status);
+  const controls = el('div', '', 'music-controls');
+  function button(text, label, className) {
+    const node = el('button', text, className);
+    node.type = 'button'; node.setAttribute('aria-label', label);
+    return node;
+  }
+  const previous = button('↤', 'Prethodna snimka');
+  const play = button('▶', 'Reproduciraj', 'music-play');
+  const next = button('↦', 'Sljedeća snimka');
+  controls.append(previous, play, next);
+  deck.append(visual, info, controls);
+  const timeline = el('div', '', 'music-timeline');
+  const elapsed = el('span', '0:00');
+  const seek = el('input');
+  seek.type = 'range'; seek.min = 0; seek.max = 1000; seek.value = 0;
+  seek.setAttribute('aria-label', 'Položaj reprodukcije');
+  const duration = el('span');
+  timeline.append(elapsed, seek, duration);
+  const playlist = el('div', '', 'music-tracks');
+  let current = 0;
+  let request = 0;
+  const rows = tracks.map((track, index) => {
+    const row = button('', `Poslušaj: ${track.title}`, 'music-track');
+    row.append(el('span', String(index + 1).padStart(2, '0'), 'track-number'), el('span', track.title, 'track-title'), el('span', track.mastered ? 'MASTER' : 'SNIMKA', 'track-tag'), el('span', formatTime(track.duration), 'track-duration'));
+    row.addEventListener('click', () => { if (index === current) toggle(); else select(index, true); });
+    playlist.append(row); return row;
+  });
+  function update() {
+    const playing = !audio.paused;
+    panel.classList.toggle('is-playing', playing);
+    play.textContent = playing ? 'Ⅱ' : '▶';
+    play.setAttribute('aria-label', playing ? 'Pauziraj' : 'Reproduciraj');
+    rows.forEach((row, index) => {
+      row.classList.toggle('is-current', index === current);
+      row.setAttribute('aria-pressed', String(index === current && playing));
+    });
+  }
+  async function start() {
+    const attempt = ++request;
+    status.textContent = 'Učitavanje…';
+    try { await audio.play(); }
+    catch { if (attempt === request) { status.textContent = 'Reprodukcija nije uspjela. Pokušaj ponovno.'; update(); } }
+  }
+  function select(index, autoplay = false) {
+    request++;
+    audio.pause(); current = (index + tracks.length) % tracks.length;
+    audio.src = safeUrl(tracks[current].audio);
+    title.textContent = tracks[current].title;
+    duration.textContent = formatTime(tracks[current].duration);
+    elapsed.textContent = '0:00'; seek.value = 0;
+    status.textContent = 'Spremno za slušanje'; update();
+    if (autoplay) start();
+  }
+  function toggle() { if (audio.paused) start(); else { request++; audio.pause(); } }
+  play.addEventListener('click', toggle);
+  previous.addEventListener('click', () => select(current - 1, true));
+  next.addEventListener('click', () => select(current + 1, true));
+  audio.addEventListener('playing', () => { status.textContent = 'Sada svira'; update(); });
+  audio.addEventListener('pause', () => { status.textContent = 'Pauzirano'; update(); });
+  audio.addEventListener('waiting', () => { status.textContent = 'Učitavanje…'; });
+  audio.addEventListener('error', () => { status.textContent = 'Snimku nije moguće učitati. Pokušaj drugu.'; update(); });
+  audio.addEventListener('ended', () => { if (current < tracks.length - 1) select(current + 1, true); else { status.textContent = 'Sve snimke su odslušane'; update(); } });
+  audio.addEventListener('timeupdate', () => {
+    elapsed.textContent = formatTime(audio.currentTime);
+    seek.value = Number.isFinite(audio.duration) && audio.duration > 0 ? audio.currentTime / audio.duration * 1000 : 0;
+    seek.setAttribute('aria-valuetext', `${formatTime(audio.currentTime)} od ${formatTime(audio.duration || tracks[current].duration)}`);
+  });
+  seek.addEventListener('input', () => { if (Number.isFinite(audio.duration)) audio.currentTime = Number(seek.value) / 1000 * audio.duration; });
+  panel.append(header, deck, timeline, playlist, audio);
+  select(0);
+  return {panel, audio};
+}
 let galleryIndex = 0;
 function showGallery(work, index = 0) {
   galleryWork = work;
@@ -72,7 +167,10 @@ function render(category = 'sve') {
     button.setAttribute('aria-pressed', String(active));
   });
   const selected = works.filter(work => category === 'sve' || work.category === category);
+  if (musicPlayer) { musicPlayer.audio.pause(); musicPlayer = null; }
   list.replaceChildren();
+  const tracks = selected.filter(work => work.category === 'glazba' && safeUrl(work.audio));
+  if (tracks.length) { musicPlayer = createMusicPlayer(tracks); list.append(musicPlayer.panel); }
   if (!selected.length) {
     const empty = el('div', '', 'empty');
     empty.append(el('span', '↗', 'empty-mark'));
@@ -83,6 +181,7 @@ function render(category = 'sve') {
     list.append(empty);
   }
   selected.forEach(work => {
+    if (tracks.includes(work)) return;
     const card = el('article', '', 'work');
     if (work.thumbnailOnly) card.classList.add('thumbnail-collection');
     const cover = safeUrl(work.cover);

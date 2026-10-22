@@ -102,6 +102,86 @@
       "url": "https://github.com/boykopovar/AnyPS5",
       "linkLabel": "Pogledaj projekt na GitHubu ↗",
       "contributionCounter": "anyps5"
+    },
+    {
+      "id": "music-1",
+      "title": "Alicia",
+      "category": "glazba",
+      "audio": "music/alicia (mastered).mp3",
+      "duration": 170,
+      "mastered": true
+    },
+    {
+      "id": "music-2",
+      "title": "Alt 2",
+      "category": "glazba",
+      "audio": "music/alt 2.mp3",
+      "duration": 45,
+      "mastered": false
+    },
+    {
+      "id": "music-3",
+      "title": "Alt",
+      "category": "glazba",
+      "audio": "music/alt.mp3",
+      "duration": 77,
+      "mastered": false
+    },
+    {
+      "id": "music-4",
+      "title": "Assassins creed 4 a pirates life",
+      "category": "glazba",
+      "audio": "music/assassins creed 4 a pirates life (mastered).mp3",
+      "duration": 31,
+      "mastered": true
+    },
+    {
+      "id": "music-5",
+      "title": "For those who come after",
+      "category": "glazba",
+      "audio": "music/for those who come after (mastered).mp3",
+      "duration": 122,
+      "mastered": true
+    },
+    {
+      "id": "music-6",
+      "title": "Future",
+      "category": "glazba",
+      "audio": "music/future (mastered).mp3",
+      "duration": 118,
+      "mastered": true
+    },
+    {
+      "id": "music-7",
+      "title": "Metal test 2",
+      "category": "glazba",
+      "audio": "music/metal test 2.mp3",
+      "duration": 37,
+      "mastered": false
+    },
+    {
+      "id": "music-8",
+      "title": "Metal test",
+      "category": "glazba",
+      "audio": "music/metal test.mp3",
+      "duration": 14,
+      "mastered": false
+    },
+    {
+      "id": "music-9",
+      "title": "Never too drunk",
+      "category": "glazba",
+      "audio": "music/never too drunk.mp3",
+      "duration": 37,
+      "mastered": false
+    },
+    {
+      "id": "music-10",
+      "title": "Slava bogu",
+      "category": "glazba",
+      "audio": "music/slava bogu (mastered).mp3",
+      "duration": 74,
+      "mastered": true
     }
   ]
 }
