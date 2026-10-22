@@ -29,11 +29,72 @@ function createMusicPlayer(tracks) {
   const deck = el('div', '', 'music-deck');
   const visual = el('div', '', 'music-visual');
   visual.setAttribute('aria-hidden', 'true');
+  visual.title = 'Frekvencijski spektar · bas → visoki tonovi';
+  const bars = [];
   for (let i = 0; i < 17; i++) {
     const bar = el('i');
-    bar.style.setProperty('--height', `${16 + ((i * 37 + 19) % 65)}%`);
-    bar.style.setProperty('--delay', `${i * -.13}s`);
+    bar.style.height = '3px';
+    bars.push(bar);
     visual.append(bar);
+  }
+  let context = null;
+  let source = null;
+  let analyser = null;
+  let spectrum = null;
+  let frame = null;
+  let disposed = false;
+  let lastDraw = 0;
+  const reducedMotion = matchMedia('(prefers-reduced-motion: reduce)');
+  function stopSpectrum() {
+    cancelAnimationFrame(frame);
+    frame = null;
+    bars.forEach(bar => { bar.style.height = '3px'; });
+  }
+  function drawSpectrum(now) {
+    if (disposed || audio.paused || audio.ended || document.hidden) { stopSpectrum(); return; }
+    if (now - lastDraw >= (reducedMotion.matches ? 250 : 33)) {
+      lastDraw = now;
+      analyser.getByteFrequencyData(spectrum);
+      const binHz = context.sampleRate / analyser.fftSize;
+      const maxHz = Math.min(16000, context.sampleRate / 2);
+      bars.forEach((bar, index) => {
+        // Logarithmic frequency bands: bass on the left, treble on the right.
+        const low = Math.max(1, Math.floor(45 * (maxHz / 45) ** (index / bars.length) / binHz));
+        const high = Math.min(spectrum.length, Math.max(low + 1, Math.ceil(45 * (maxHz / 45) ** ((index + 1) / bars.length) / binHz)));
+        let energy = 0;
+        for (let bin = low; bin < high; bin++) energy += spectrum[bin] ** 2;
+        const level = Math.sqrt(energy / (high - low)) / 255;
+        bar.style.height = `${Math.max(4, level * 100)}%`;
+      });
+    }
+    frame = requestAnimationFrame(drawSpectrum);
+  }
+  function startSpectrum() {
+    if (analyser && frame === null && !document.hidden && !disposed) frame = requestAnimationFrame(drawSpectrum);
+  }
+  function visibilityChanged() { if (document.hidden) stopSpectrum(); else if (!audio.paused) startSpectrum(); }
+  document.addEventListener('visibilitychange', visibilityChanged);
+  function prepareSpectrum() {
+    const AudioContextClass = window.AudioContext || window.webkitAudioContext;
+    if (!AudioContextClass || disposed) return;
+    try {
+      if (!context) context = new AudioContextClass();
+      if (!source) {
+        source = context.createMediaElementSource(audio);
+        // Keep audible playback connected even if analysis is unavailable.
+        source.connect(context.destination);
+      }
+      if (!analyser) {
+        analyser = context.createAnalyser();
+        analyser.fftSize = 4096;
+        analyser.smoothingTimeConstant = .75;
+        analyser.minDecibels = -85;
+        analyser.maxDecibels = -15;
+        spectrum = new Uint8Array(analyser.frequencyBinCount);
+        source.connect(analyser);
+      }
+      if (context.state === 'suspended') context.resume().catch(() => {});
+    } catch { /* Playback remains available without a spectrum. */ }
   }
   const info = el('div', '', 'music-info');
   const title = el('h3');
@@ -78,6 +139,7 @@ function createMusicPlayer(tracks) {
     });
   }
   async function start() {
+    prepareSpectrum();
     const attempt = ++request;
     status.textContent = 'Učitavanje…';
     try { await audio.play(); }
@@ -97,10 +159,10 @@ function createMusicPlayer(tracks) {
   play.addEventListener('click', toggle);
   previous.addEventListener('click', () => select(current - 1, true));
   next.addEventListener('click', () => select(current + 1, true));
-  audio.addEventListener('playing', () => { status.textContent = 'Sada svira'; update(); });
-  audio.addEventListener('pause', () => { status.textContent = 'Pauzirano'; update(); });
-  audio.addEventListener('waiting', () => { status.textContent = 'Učitavanje…'; });
-  audio.addEventListener('error', () => { status.textContent = 'Snimku nije moguće učitati. Pokušaj drugu.'; update(); });
+  audio.addEventListener('playing', () => { status.textContent = 'Sada svira'; update(); startSpectrum(); });
+  audio.addEventListener('pause', () => { status.textContent = 'Pauzirano'; update(); stopSpectrum(); });
+  audio.addEventListener('waiting', () => { status.textContent = 'Učitavanje…'; stopSpectrum(); });
+  audio.addEventListener('error', () => { status.textContent = 'Snimku nije moguće učitati. Pokušaj drugu.'; update(); stopSpectrum(); });
   audio.addEventListener('ended', () => { if (current < tracks.length - 1) select(current + 1, true); else { status.textContent = 'Sve snimke su odslušane'; update(); } });
   audio.addEventListener('timeupdate', () => {
     elapsed.textContent = formatTime(audio.currentTime);
@@ -110,7 +172,13 @@ function createMusicPlayer(tracks) {
   seek.addEventListener('input', () => { if (Number.isFinite(audio.duration)) audio.currentTime = Number(seek.value) / 1000 * audio.duration; });
   panel.append(header, deck, timeline, playlist, audio);
   select(0);
-  return {panel, audio};
+  return {panel, audio, dispose() {
+    disposed = true; request++;
+    audio.pause(); stopSpectrum();
+    document.removeEventListener('visibilitychange', visibilityChanged);
+    source?.disconnect(); analyser?.disconnect();
+    if (context) context.close().catch(() => {});
+  }};
 }
 let galleryIndex = 0;
 function showGallery(work, index = 0) {
@@ -167,7 +235,7 @@ function render(category = 'sve') {
     button.setAttribute('aria-pressed', String(active));
   });
   const selected = works.filter(work => category === 'sve' || work.category === category);
-  if (musicPlayer) { musicPlayer.audio.pause(); musicPlayer = null; }
+  if (musicPlayer) { musicPlayer.dispose(); musicPlayer = null; }
   list.replaceChildren();
   const tracks = selected.filter(work => work.category === 'glazba' && safeUrl(work.audio));
   if (tracks.length) { musicPlayer = createMusicPlayer(tracks); list.append(musicPlayer.panel); }
