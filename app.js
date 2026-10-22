@@ -44,6 +44,7 @@ function createMusicPlayer(tracks) {
   let frame = null;
   let disposed = false;
   let lastDraw = 0;
+  const bandReferences = new Array(bars.length).fill(null);
   const reducedMotion = matchMedia('(prefers-reduced-motion: reduce)');
   function stopSpectrum() {
     cancelAnimationFrame(frame);
@@ -53,8 +54,9 @@ function createMusicPlayer(tracks) {
   function drawSpectrum(now) {
     if (disposed || audio.paused || audio.ended || document.hidden) { stopSpectrum(); return; }
     if (now - lastDraw >= (reducedMotion.matches ? 250 : 33)) {
+      const delta = Math.min(.25, Math.max(0, (now - lastDraw) / 1000));
       lastDraw = now;
-      analyser.getByteFrequencyData(spectrum);
+      analyser.getFloatFrequencyData(spectrum);
       const binHz = context.sampleRate / analyser.fftSize;
       const maxHz = Math.min(16000, context.sampleRate / 2);
       bars.forEach((bar, index) => {
@@ -62,8 +64,20 @@ function createMusicPlayer(tracks) {
         const low = Math.max(1, Math.floor(45 * (maxHz / 45) ** (index / bars.length) / binHz));
         const high = Math.min(spectrum.length, Math.max(low + 1, Math.ceil(45 * (maxHz / 45) ** ((index + 1) / bars.length) / binHz)));
         let energy = 0;
-        for (let bin = low; bin < high; bin++) energy += spectrum[bin] ** 2;
-        const level = Math.sqrt(energy / (high - low)) / 255;
+        for (let bin = low; bin < high; bin++) energy += 10 ** (spectrum[bin] / 10);
+        const db = 10 * Math.log10(energy / (high - low));
+        // Compare each band with its own slow-moving loudness reference.
+        // This balances the display without applying EQ to audible playback.
+        const centerHz = 45 * (maxHz / 45) ** ((index + .5) / bars.length);
+        if (bandReferences[index] === null) bandReferences[index] = -45 - 3.5 * Math.log2(centerHz / 80);
+        if (Number.isFinite(db) && db > -95) {
+          const blend = 1 - Math.exp(-delta / 2);
+          bandReferences[index] += (db - bandReferences[index]) * blend;
+        }
+        // Keep silence and the noise floor from becoming full-height bars.
+        const gate = Math.max(0, Math.min(1, (db + 100) / 20));
+        const relative = (db - bandReferences[index] + 24) / 48;
+        const level = Number.isFinite(db) ? Math.max(0, Math.min(1, relative)) * gate : 0;
         bar.style.height = `${Math.max(4, level * 100)}%`;
       });
     }
@@ -90,7 +104,7 @@ function createMusicPlayer(tracks) {
         analyser.smoothingTimeConstant = .75;
         analyser.minDecibels = -85;
         analyser.maxDecibels = -15;
-        spectrum = new Uint8Array(analyser.frequencyBinCount);
+        spectrum = new Float32Array(analyser.frequencyBinCount);
         source.connect(analyser);
       }
       if (context.state === 'suspended') context.resume().catch(() => {});
@@ -147,6 +161,7 @@ function createMusicPlayer(tracks) {
   }
   function select(index, autoplay = false) {
     request++;
+    bandReferences.fill(null);
     audio.pause(); current = (index + tracks.length) % tracks.length;
     audio.src = safeUrl(tracks[current].audio);
     title.textContent = tracks[current].title;
