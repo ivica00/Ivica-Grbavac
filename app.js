@@ -395,3 +395,61 @@ async function updateContributions() {
   } finally { contributionRequest = false; }
 }
 setInterval(() => { if (!document.hidden && document.querySelector('#anyps5-count')) updateContributions(); }, contributionTTL);
+
+
+// Web3Forms contact form submission
+const contactForm = document.querySelector('#contact-form');
+if (contactForm) {
+  const contactStatus = document.querySelector('#contact-status');
+  const contactSubmit = document.querySelector('#contact-submit');
+
+  contactForm.addEventListener('submit', async (e) => {
+    e.preventDefault();
+
+    if (!contactForm.checkValidity()) {
+      contactForm.reportValidity();
+      return;
+    }
+
+    const botcheck = contactForm.querySelector('input[name="botcheck"]');
+    if (botcheck && botcheck.checked) return;
+
+    if (contactSubmit) contactSubmit.disabled = true;
+    if (contactStatus) {
+      contactStatus.className = 'contact-status is-loading';
+      contactStatus.textContent = 'Slanje upita…';
+    }
+
+    const formData = new FormData(contactForm);
+    const payload = Object.fromEntries(formData.entries());
+
+    try {
+      const response = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+        },
+        body: JSON.stringify(payload)
+      });
+
+      const result = await response.json();
+      if (response.ok && result.success) {
+        if (contactStatus) {
+          contactStatus.className = 'contact-status is-success';
+          contactStatus.textContent = 'Hvala na upitu! Poruka je uspješno poslana. Javit ću se u najkraćem roku.';
+        }
+        contactForm.reset();
+      } else {
+        throw new Error(result.message || 'Greška pri slanju');
+      }
+    } catch (err) {
+      if (contactStatus) {
+        contactStatus.className = 'contact-status is-error';
+        contactStatus.textContent = 'Došlo je do greške pri slanju. Molim te pošalji poruku izravno na e-mail: ivica.grbavac.grbo@gmail.com';
+      }
+    } finally {
+      if (contactSubmit) contactSubmit.disabled = false;
+    }
+  });
+}

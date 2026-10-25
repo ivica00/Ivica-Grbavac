@@ -6,8 +6,8 @@
   <meta name="theme-color" content="#141715">
   <meta name="description" content="Ivica Grbavac — glazba, fotografija, inženjerstvo i razvoj. Istražite radove i javite se za suradnju.">
   <title>Ivica Grbavac — Glazba, fotografija i inženjerstvo</title>
-  <link rel="stylesheet" href="styles.css?v=10">
-  <script src="app.js?v=12" defer></script>
+  <link rel="stylesheet" href="styles.css?v=11">
+  <script src="app.js?v=13" defer></script>
 </head>
 <body>
   <header class="header wrap">
@@ -35,7 +35,67 @@
       <div id="works-list" class="works-grid" aria-live="polite"><p>Učitavanje radova…</p></div>
       <noscript><p>Za prikaz portfolija uključi JavaScript. Za suradnju mi se možeš javiti e-mailom ispod.</p></noscript>
     </section>
-    <section id="kontakt" class="contact wrap"><span class="eyebrow">03 / KONTAKT</span><div class="contact-content"><h2>Imate ideju?<br><em>Razgovarajmo.</em></h2><div><p>Za glazbene, fotografske i tehničke projekte<br>ili ideju koja povezuje sva tri područja.</p><a class="contact-link" href="mailto:ivica.grbavac.grbo@gmail.com">Javi se za suradnju <span>↗</span></a><a class="email" href="mailto:ivica.grbavac.grbo@gmail.com">ivica.grbavac.grbo@gmail.com</a></div></div></section>
+    <section id="kontakt" class="contact wrap">
+      <span class="eyebrow">03 / KONTAKT</span>
+      <div class="contact-content">
+        <div class="contact-intro">
+          <h2>Imate ideju?<br><em>Razgovarajmo.</em></h2>
+          <p>Bilo da trebate autorsku glazbu ili miks, foto-session, snimanje video spota ili inženjerski razvoj — pošaljite upit s nekoliko detalja.</p>
+          <div class="contact-direct">
+            <span class="contact-direct-label">Izravni kontakt</span>
+            <a class="email-direct" href="mailto:ivica.grbavac.grbo@gmail.com">ivica.grbavac.grbo@gmail.com <span>↗</span></a>
+            <p class="contact-note">U pravilu odgovaram unutar 24–48 sati. Veselim se vašoj ideji!</p>
+          </div>
+        </div>
+
+        <form id="contact-form" class="contact-form" action="https://api.web3forms.com/submit" method="POST">
+          <input type="hidden" name="access_key" value="c07ec0ca-c394-4589-9d6d-60f9bd697de7">
+          <input type="hidden" name="subject" value="Novi upit za suradnju (Web Portfolio)">
+          <input type="hidden" name="from_name" value="Ivica Grbavac Portfolio">
+          <input type="checkbox" name="botcheck" class="botcheck" style="display:none" tabindex="-1" autocomplete="off">
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="contact-name">Ime i prezime / Bend / Projekt <span class="req">*</span></label>
+              <input type="text" id="contact-name" name="name" required placeholder="Vaše ime ili naziv projekta" autocomplete="name">
+            </div>
+            <div class="form-group">
+              <label for="contact-email">E-mail adresa <span class="req">*</span></label>
+              <input type="email" id="contact-email" name="email" required placeholder="ime@primjer.com" autocomplete="email">
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="contact-service">Vrsta suradnje <span class="req">*</span></label>
+              <select id="contact-service" name="service" required>
+                <option value="" disabled selected>Odaberi područje…</option>
+                <option value="Glazba">🎵 Glazba (produkcija, miks/master, autorski rad)</option>
+                <option value="Fotografija">📷 Foto-shoot (portret, editorijal, event)</option>
+                <option value="Video spot">🎬 Snimanje glazbenog spota / Video produkcija</option>
+                <option value="Inženjerstvo">⚙️ Inženjerstvo / Tehnički razvoj</option>
+                <option value="Kombinacija / Drugo">✦ Kombinacija više područja / Drugo</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="contact-timeline">Okvirni rok ili termin</label>
+              <input type="text" id="contact-timeline" name="timeline" placeholder="npr. idući mjesec, proljeće, fleksibilno…">
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="contact-message">Opis ideje ili projekta <span class="req">*</span></label>
+            <textarea id="contact-message" name="message" rows="4" required placeholder="Opišite svoju viziju, reference, okvirni budžet ili bilo kakva pitanja…"></textarea>
+          </div>
+
+          <button type="submit" id="contact-submit" class="contact-submit">
+            <span>Pošalji upit</span>
+            <span class="arrow" aria-hidden="true">↗</span>
+          </button>
+          <div id="contact-status" class="contact-status" role="status" aria-live="polite"></div>
+        </form>
+      </div>
+    </section>
   </main>
   <footer class="wrap"><a class="brand" href="#pocetna">IG<span>.</span></a><span>© <span id="year">2026</span> Ivica Grbavac</span><a href="#pocetna">Na vrh ↑</a></footer>
   <dialog id="gallery" aria-labelledby="gallery-title"><button class="close" type="button" aria-label="Zatvori galeriju">✕</button><div id="gallery-content"></div></dialog>
