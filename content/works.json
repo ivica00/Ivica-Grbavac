@@ -42,8 +42,8 @@
       "id": "zadnjih-mjesec-dana",
       "title": "4 najbolje u zadnjih mjesec dana",
       "category": "fotografija",
-      "description": "Odabrani radovi snimljeni od 20.09.2026. do 20.10.2026., bez ponavljanja iz drugih kolekcija.",
-      "selectionNote": "Odabrano 2 od najviše 4 rada. Prednost ima kvaliteta izbora.",
+      "description": "Odabrani radovi iz posljednjeg mjeseca, bez ponavljanja iz drugih kolekcija.",
+      "selectionNote": "Odabrano 3 od najviše 4 rada. Prednost ima kvaliteta izbora.",
       "thumbnailOnly": true,
       "photos": [
         {
@@ -59,6 +59,13 @@
           "height": 400,
           "alt": "4 najbolje u zadnjih mjesec dana — fotografija 2",
           "largeSrc": "assets/photos/selected/ae3f9db750bb56fc-large.webp"
+        },
+        {
+          "src": "assets/photos/selected/sendvic-2026-10-29.webp",
+          "width": 600,
+          "height": 400,
+          "alt": "Sendvič s pohanim mesom, pomfrit i kolutići luka",
+          "largeSrc": "assets/photos/selected/sendvic-2026-10-29-large.webp"
         }
       ]
     },
