@@ -43,7 +43,7 @@
       "title": "4 najbolje u zadnjih mjesec dana",
       "category": "fotografija",
       "description": "Odabrani radovi iz posljednjeg mjeseca, bez ponavljanja iz drugih kolekcija.",
-      "selectionNote": "Odabrano 3 od najviše 4 rada. Prednost ima kvaliteta izbora.",
+      "selectionNote": "Odabrana 4 rada: 3 fotografije i 1 video.",
       "thumbnailOnly": true,
       "photos": [
         {
@@ -66,6 +66,16 @@
           "height": 400,
           "alt": "Sendvič s pohanim mesom, pomfrit i kolutići luka",
           "largeSrc": "assets/photos/selected/sendvic-2026-10-29-large.webp"
+        },
+        {
+          "type": "video",
+          "src": "assets/videos/lesko-gril-1-proba.mp4",
+          "poster": "assets/videos/lesko-gril-1-proba.webp",
+          "width": 1080,
+          "height": 1920,
+          "alt": "Leško gril — prva proba",
+          "duration": 19,
+          "caption": "Leško gril — prva proba"
         }
       ]
     },

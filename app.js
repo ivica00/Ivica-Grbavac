@@ -196,7 +196,12 @@ function createMusicPlayer(tracks) {
   }};
 }
 let galleryIndex = 0;
+function stopGalleryVideo() {
+  const video = dialog.querySelector('video');
+  if (video) { video.pause(); video.removeAttribute('src'); video.load(); }
+}
 function showGallery(work, index = 0) {
+  stopGalleryVideo();
   galleryWork = work;
   galleryIndex = index;
   const photo = work.photos[index];
@@ -204,16 +209,29 @@ function showGallery(work, index = 0) {
   const heading = el('h2', work.title);
   heading.id = 'gallery-title';
   const figure = el('figure');
-  const image = el('img');
-  image.alt = photo.alt || work.title;
-  image.decoding = 'async';
-  const status = el('p', 'Učitavanje fotografije…', 'gallery-status');
+  const isVideo = photo.type === 'video';
+  const status = el('p', isVideo ? 'Učitavanje videa…' : 'Učitavanje fotografije…', 'gallery-status');
   status.setAttribute('role', 'status');
-  image.onload = () => { status.hidden = true; };
-  image.onerror = () => { status.textContent = 'Fotografiju nije moguće učitati. Pokušaj ponovno.'; };
-  // Assign only the selected image: other large files are never prefetched.
-  image.src = safeUrl(photo.largeSrc) || safeUrl(photo.src);
-  figure.append(image);
+  if (isVideo) {
+    const video = el('video');
+    video.controls = true;
+    video.playsInline = true;
+    video.preload = 'none';
+    video.poster = safeUrl(photo.poster);
+    video.setAttribute('aria-label', photo.alt || work.title);
+    video.addEventListener('loadeddata', () => { status.hidden = true; });
+    video.addEventListener('error', () => { status.hidden = false; status.textContent = 'Video nije moguće učitati. Pokušaj ponovno.'; });
+    video.src = safeUrl(photo.src);
+    figure.append(video);
+  } else {
+    const image = el('img');
+    image.alt = photo.alt || work.title;
+    image.decoding = 'async';
+    image.onload = () => { status.hidden = true; };
+    image.onerror = () => { status.textContent = 'Fotografiju nije moguće učitati. Pokušaj ponovno.'; };
+    image.src = safeUrl(photo.largeSrc) || safeUrl(photo.src);
+    figure.append(image);
+  }
   if (photo.caption) figure.append(el('figcaption', photo.caption));
   const controls = el('div', '', 'gallery-controls');
   const previous = el('button', '← Prethodna');
@@ -230,9 +248,14 @@ function showGallery(work, index = 0) {
   if (!dialog.open) dialog.showModal();
   else dialog.querySelector('.close').focus({preventScroll: true});
   dialog.scrollTop = 0;
+  if (isVideo) {
+    const video = figure.querySelector('video');
+    video.focus({preventScroll: true});
+    video.play().catch(() => { status.hidden = true; });
+  }
 }
 dialog.addEventListener('keydown', event => {
-  if (!galleryWork) return;
+  if (!galleryWork || event.target.closest('video')) return;
   if (event.key === 'ArrowLeft' && galleryIndex > 0) {
     event.preventDefault(); showGallery(galleryWork, galleryIndex - 1);
   } else if (event.key === 'ArrowRight' && galleryIndex < galleryWork.photos.length - 1) {
@@ -240,6 +263,7 @@ dialog.addEventListener('keydown', event => {
   }
 });
 dialog.addEventListener('close', () => {
+  stopGalleryVideo();
   galleryWork = null;
   document.querySelector('#gallery-content').replaceChildren();
 });
@@ -295,7 +319,8 @@ function render(category = 'sve') {
       if (work.thumbnailOnly) {
         const grid = el('div', '', 'photo-thumbnails');
         work.photos.forEach((photo, index) => {
-          const src = safeUrl(photo.src);
+          const isVideo = photo.type === 'video';
+          const src = safeUrl(isVideo ? photo.poster : photo.src);
           if (!src) return;
           const image = el('img');
           image.src = src;
@@ -306,10 +331,16 @@ function render(category = 'sve') {
           if (photo.height) image.height = photo.height;
           const button = el('button', '', 'photo-open');
           button.type = 'button';
-          button.setAttribute('aria-label', `Povećaj: ${image.alt}`);
+          button.setAttribute('aria-label', `${isVideo ? 'Reproduciraj video' : 'Povećaj'}: ${image.alt}`);
           button.setAttribute('aria-haspopup', 'dialog');
           button.addEventListener('click', () => showGallery(work, index));
           button.append(image);
+          if (isVideo) {
+            button.classList.add('video-open');
+            const play = el('span', '▶', 'video-play');
+            play.setAttribute('aria-hidden', 'true');
+            button.append(play, el('span', `Video · ${formatTime(photo.duration)}`, 'video-badge'));
+          }
           grid.append(button);
         });
         card.append(grid);
@@ -336,7 +367,7 @@ document.querySelectorAll('[data-filter]').forEach(button => button.addEventList
 document.querySelectorAll('[data-category]').forEach(anchor => anchor.addEventListener('click', () => render(anchor.dataset.category)));
 document.querySelector('.close').addEventListener('click', () => dialog.close());
 dialog.addEventListener('click', event => { if (event.target === dialog) { const rect = dialog.getBoundingClientRect(); if (event.clientX < rect.left || event.clientX > rect.right || event.clientY < rect.top || event.clientY > rect.bottom) dialog.close(); } });
-document.addEventListener('play', event => { if (event.target.tagName === 'AUDIO') document.querySelectorAll('audio').forEach(audio => { if (audio !== event.target) audio.pause(); }); }, true);
+document.addEventListener('play', event => { if (['AUDIO', 'VIDEO'].includes(event.target.tagName)) document.querySelectorAll('audio, video').forEach(audio => { if (audio !== event.target) audio.pause(); }); }, true);
 document.querySelector('#year').textContent = new Date().getFullYear();
 fetch('content/works.json', {cache: 'no-cache'}).then(response => { if (!response.ok) throw new Error('Loading failed'); return response.json(); }).then(data => {
   if (!Array.isArray(data.works)) throw new Error('Invalid works');

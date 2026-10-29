@@ -86,3 +86,6 @@ h1{font-size:clamp(82px,9.8vw,132px);letter-spacing:-7px;margin:28px 0 26px;line
   .contact-form{padding:20px 16px;gap:16px}
   .form-row{grid-template-columns:1fr;gap:16px}
 }
+
+/* Video shares the photo frame and opens with native playback controls. */
+.video-open{position:relative;cursor:pointer}.video-play{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);display:grid;place-items:center;width:56px;height:56px;border:1px solid #ffffff80;border-radius:50%;background:#141715d9;color:#fff;font-size:22px;padding-left:3px;pointer-events:none}.video-open:hover .video-play,.video-open:focus-visible .video-play{background:#c9dc99;color:#141715}.video-badge{position:absolute;bottom:10px;right:10px;background:#141715e6;color:#fff;padding:5px 9px;border-radius:4px;font-size:12px;pointer-events:none}#gallery-content video{display:block;width:auto;height:auto;max-width:100%;max-height:calc(90dvh - 190px);margin:auto;background:#000}
