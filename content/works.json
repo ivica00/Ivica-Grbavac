@@ -43,15 +43,18 @@
       "title": "4 najbolje u zadnjih mjesec dana",
       "category": "fotografija",
       "description": "Odabrani radovi iz posljednjeg mjeseca, bez ponavljanja iz drugih kolekcija.",
-      "selectionNote": "Odabrana 4 rada: 3 fotografije i 1 video.",
+      "selectionNote": "Odabrana 4 rada: 2 fotografije i 2 videa.",
       "thumbnailOnly": true,
       "photos": [
         {
-          "src": "assets/photos/selected/a8ac687537e072e1.webp",
-          "width": 400,
-          "height": 600,
-          "alt": "4 najbolje u zadnjih mjesec dana — fotografija 1",
-          "largeSrc": "assets/photos/selected/a8ac687537e072e1-large.webp"
+          "type": "video",
+          "src": "assets/videos/kavica-2026-10-31.mp4",
+          "poster": "assets/videos/kavica-2026-10-31.webp",
+          "width": 1080,
+          "height": 1920,
+          "alt": "Kavica — 31.10.2026.",
+          "duration": 48,
+          "caption": "Kavica — 31.10.2026."
         },
         {
           "src": "assets/photos/selected/ae3f9db750bb56fc.webp",
@@ -83,17 +86,10 @@
       "id": "zadnjih-tjedan-dana",
       "title": "4 najbolje u zadnjih tjedan dana",
       "category": "fotografija",
-      "description": "Odabrani radovi snimljeni od 14.10.2026. do 20.10.2026., bez ponavljanja iz drugih kolekcija.",
-      "selectionNote": "Odabrano 3 od najviše 4 rada. Prednost ima kvaliteta izbora.",
+      "description": "Odabrani radovi iz posljednjeg tjedna, bez ponavljanja iz drugih kolekcija.",
+      "selectionNote": "",
       "thumbnailOnly": true,
       "photos": [
-        {
-          "src": "assets/photos/selected/6fc39f77e1787239.webp",
-          "width": 600,
-          "height": 400,
-          "alt": "4 najbolje u zadnjih tjedan dana — fotografija 1",
-          "largeSrc": "assets/photos/selected/6fc39f77e1787239-large.webp"
-        },
         {
           "src": "assets/photos/selected/e4197b50b690b89c.webp",
           "width": 600,
@@ -107,6 +103,20 @@
           "height": 400,
           "alt": "4 najbolje u zadnjih tjedan dana — fotografija 3",
           "largeSrc": "assets/photos/selected/4beedace67e7e347-large.webp"
+        },
+        {
+          "src": "assets/photos/selected/kavica-2026-10-31-portret.webp",
+          "width": 400,
+          "height": 600,
+          "alt": "Djevojka sa sunčanim naočalama i slušalicama za DJ pultom uz bundeve",
+          "largeSrc": "assets/photos/selected/kavica-2026-10-31-portret-large.webp"
+        },
+        {
+          "src": "assets/photos/selected/kavica-2026-10-31-dj-bundeve.webp",
+          "width": 600,
+          "height": 400,
+          "alt": "Ruke za DJ pultom između bundeva",
+          "largeSrc": "assets/photos/selected/kavica-2026-10-31-dj-bundeve-large.webp"
         }
       ]
     },
