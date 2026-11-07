@@ -1,51 +1,71 @@
 {
   "works": [
     {
-      "id": "najbolje-ikad",
-      "title": "4 najbolje ikad",
+      "id": "gastro-i-produkt",
+      "title": "Gastro i komercijalna fotografija",
       "category": "fotografija",
-      "description": "Odabrani radovi prema prikladnosti za profesionalni portfolio, tehničkoj kvaliteti i raznolikosti kadrova.",
+      "description": "Komercijalna fotografija hrane, pića i ambijenta s naglaskom na detalje, teksture i prirodno svjetlo.",
       "selectionNote": "",
       "thumbnailOnly": true,
       "photos": [
         {
-          "src": "assets/photos/selected/1d82998bf6a91623.webp",
+          "src": "assets/photos/selected/gloria-2026-11-03-pizza-kriska.webp",
           "width": 600,
           "height": 400,
-          "alt": "4 najbolje ikad — fotografija 1",
-          "largeSrc": "assets/photos/selected/1d82998bf6a91623-large.webp"
+          "alt": "Podizanje svježe pečene kriške pizze s rastegnutim sirom",
+          "largeSrc": "assets/photos/selected/gloria-2026-11-03-pizza-kriska-large.webp",
+          "caption": "Pizzeria Gloria — kriška pizze u pokretu"
         },
         {
-          "src": "assets/photos/selected/d30ab59809907b9c.webp",
+          "src": "assets/photos/selected/gloria-2026-11-03-coca-cola.webp",
           "width": 600,
           "height": 400,
-          "alt": "4 najbolje ikad — fotografija 2",
-          "largeSrc": "assets/photos/selected/d30ab59809907b9c-large.webp"
+          "alt": "Hladna staklena boca Coca-Cole s kapljicama kondenzacije i čaša s ledom",
+          "largeSrc": "assets/photos/selected/gloria-2026-11-03-coca-cola-large.webp",
+          "caption": "Pizzeria Gloria — osvježenje uz led"
         },
         {
-          "src": "assets/photos/selected/portret-20261015-dsc0799.webp",
+          "src": "assets/photos/selected/gloria-2026-11-03-umak.webp",
           "width": 600,
           "height": 400,
-          "alt": "Portret djevojke s naočalama ispred toplog žutog zida",
-          "largeSrc": "assets/photos/selected/portret-20261015-dsc0799-large.webp"
+          "alt": "Zanatska priprema tijesta za pizzu i nanošenje umaka od rajčice",
+          "largeSrc": "assets/photos/selected/gloria-2026-11-03-umak-large.webp",
+          "caption": "Pizzeria Gloria — priprema tijesta u kuhinji"
         },
         {
-          "src": "assets/photos/selected/77b75167a3b56247.webp",
+          "src": "assets/photos/selected/sendvic-2026-10-29.webp",
           "width": 600,
           "height": 400,
-          "alt": "4 najbolje ikad — fotografija 4",
-          "largeSrc": "assets/photos/selected/77b75167a3b56247-large.webp"
+          "alt": "Sendvič s pohanim mesom, pomfrit i kolutići luka",
+          "largeSrc": "assets/photos/selected/sendvic-2026-10-29-large.webp",
+          "caption": "Gastro ponuda — sendvič i prilozi"
         }
       ]
     },
     {
-      "id": "zadnjih-mjesec-dana",
-      "title": "4 najbolje u zadnjih mjesec dana",
+      "id": "eventi-i-portreti",
+      "title": "Eventi, portreti i video",
       "category": "fotografija",
-      "description": "Odabrani radovi iz posljednjeg mjeseca, bez ponavljanja iz drugih kolekcija.",
-      "selectionNote": "Odabrana 4 rada: 2 fotografije i 2 videa.",
+      "description": "Atmosfera s događanja, portreti izvođača i kratki promo video formati.",
+      "selectionNote": "2 fotografije i 2 video formata.",
       "thumbnailOnly": true,
       "photos": [
+        {
+          "src": "assets/photos/selected/kavica-2026-10-31-portret.webp",
+          "width": 400,
+          "height": 600,
+          "alt": "Djevojka sa sunčanim naočalama i slušalicama za DJ pultom uz bundeve",
+          "largeSrc": "assets/photos/selected/kavica-2026-10-31-portret-large.webp",
+          "caption": "Kavica — DJ nastup"
+        },
+        {
+          "src": "assets/photos/selected/kavica-2026-10-31-dj-bundeve.webp",
+          "width": 600,
+          "height": 400,
+          "alt": "Ruke za DJ pultom između ukrasnih bundeva",
+          "largeSrc": "assets/photos/selected/kavica-2026-10-31-dj-bundeve-large.webp",
+          "caption": "Kavica — mikseta i jesenski ambijent"
+        },
         {
           "type": "video",
           "src": "assets/videos/kavica-2026-10-31.mp4",
@@ -55,20 +75,6 @@
           "alt": "Kavica — 31.10.2026.",
           "duration": 48,
           "caption": "Kavica — 31.10.2026."
-        },
-        {
-          "src": "assets/photos/selected/ae3f9db750bb56fc.webp",
-          "width": 600,
-          "height": 400,
-          "alt": "4 najbolje u zadnjih mjesec dana — fotografija 2",
-          "largeSrc": "assets/photos/selected/ae3f9db750bb56fc-large.webp"
-        },
-        {
-          "src": "assets/photos/selected/sendvic-2026-10-29.webp",
-          "width": 600,
-          "height": 400,
-          "alt": "Sendvič s pohanim mesom, pomfrit i kolutići luka",
-          "largeSrc": "assets/photos/selected/sendvic-2026-10-29-large.webp"
         },
         {
           "type": "video",
@@ -83,40 +89,44 @@
       ]
     },
     {
-      "id": "zadnjih-tjedan-dana",
-      "title": "4 najbolje u zadnjih tjedan dana",
+      "id": "prostor-i-pejzazi",
+      "title": "Prostor, ambijent i pejzaži",
       "category": "fotografija",
-      "description": "Odabrani radovi iz posljednjeg tjedna, bez ponavljanja iz drugih kolekcija.",
+      "description": "Ambijentalna fotografija interijera, uličnih noćnih kadrova i prirodnih pejzaža u zlatnom satu.",
       "selectionNote": "",
       "thumbnailOnly": true,
       "photos": [
         {
+          "src": "assets/photos/selected/gloria-2026-11-03-interijer.webp",
+          "width": 600,
+          "height": 400,
+          "alt": "Topli interijer restorana s drvenim stolovima i ambijentalnom rasvjetom",
+          "largeSrc": "assets/photos/selected/gloria-2026-11-03-interijer-large.webp",
+          "caption": "Pizzeria Gloria — topli ambijent interijera"
+        },
+        {
           "src": "assets/photos/selected/e4197b50b690b89c.webp",
           "width": 600,
           "height": 400,
-          "alt": "4 najbolje u zadnjih tjedan dana — fotografija 2",
-          "largeSrc": "assets/photos/selected/e4197b50b690b89c-large.webp"
+          "alt": "Portret muškarca u kožnom kaputu na osvijetljenoj stazi noćnog parka",
+          "largeSrc": "assets/photos/selected/e4197b50b690b89c-large.webp",
+          "caption": "Noćna šetnja — ambijentalno svjetlo parka"
         },
         {
-          "src": "assets/photos/selected/4beedace67e7e347.webp",
+          "src": "assets/photos/selected/1d82998bf6a91623.webp",
           "width": 600,
           "height": 400,
-          "alt": "4 najbolje u zadnjih tjedan dana — fotografija 3",
-          "largeSrc": "assets/photos/selected/4beedace67e7e347-large.webp"
+          "alt": "Zalazak sunca nad morem kroz siluete borovih grana",
+          "largeSrc": "assets/photos/selected/1d82998bf6a91623-large.webp",
+          "caption": "Zalazak sunca nad morem"
         },
         {
-          "src": "assets/photos/selected/kavica-2026-10-31-portret.webp",
-          "width": 400,
-          "height": 600,
-          "alt": "Djevojka sa sunčanim naočalama i slušalicama za DJ pultom uz bundeve",
-          "largeSrc": "assets/photos/selected/kavica-2026-10-31-portret-large.webp"
-        },
-        {
-          "src": "assets/photos/selected/kavica-2026-10-31-dj-bundeve.webp",
+          "src": "assets/photos/selected/77b75167a3b56247.webp",
           "width": 600,
           "height": 400,
-          "alt": "Ruke za DJ pultom između bundeva",
-          "largeSrc": "assets/photos/selected/kavica-2026-10-31-dj-bundeve-large.webp"
+          "alt": "Purpurni i zlatni oblaci u sumrak iznad krošnji drveća",
+          "largeSrc": "assets/photos/selected/77b75167a3b56247-large.webp",
+          "caption": "Večernje nebo i oblaci"
         }
       ]
     },
